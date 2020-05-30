@@ -2,7 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model List<Team>
+
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <h3>Teams</h3>
+    <ul>
+        @foreach(var team in Model)
+        {
+            <li>
+                @team.Location @team.Name
+            </li>
+        }
+
+    </ul>
 </div>

@@ -27,7 +27,8 @@ namespace SportsBook
         {
             services.AddControllersWithViews();
 
-            services.AddSingleton<ITeamRepository, MockTeamRepository>();
+            services.AddScoped<ITeamRepository, MockTeamRepository>();
+            services.AddScoped<IStadiumRepository, MockStadiumRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

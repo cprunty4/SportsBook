@@ -5,22 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SportsBook.Interfaces;
 using SportsBook.Models;
+using SportsBook.Repository;
 
 namespace SportsBook.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ITeamRepository _teamRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ITeamRepository teamRepository)
         {
             _logger = logger;
+            _teamRepository = teamRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_teamRepository.GetAllTeams());
         }
 
         public IActionResult Privacy()

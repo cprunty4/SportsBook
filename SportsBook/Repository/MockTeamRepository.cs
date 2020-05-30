@@ -16,11 +16,32 @@ namespace SportsBook.Repository
                 new Team
                 {
                     Id = 1,
-                    LocationName = "Green Bay",
+                    Location = "Green Bay",
                     TeamAbbreviation = "GBP",
-                    MascotName = "Packers",
+                    Name = "Packers",
                     Conference = "NFC",
-                    Division = "NFC North"
+                    Division = "NFC North",
+                    Colors = new List<string> {"DarkGreen", "Gold"}
+                },
+                new Team
+                {
+                    Id = 2,
+                    Location = "Kansas City",
+                    TeamAbbreviation = "KC",
+                    Name = "Chiefs",
+                    Conference = "AFC",
+                    Division = "AFC West",
+                    Colors = new List<string> {"Red", "Gold"}
+                },
+                new Team
+                {
+                    Id = 3,
+                    Location = "Dallas",
+                    TeamAbbreviation = "DAL",
+                    Name = "Cowboys",
+                    Conference = "NFC",
+                    Division = "NFC East",
+                    Colors = new List<string> {"NavyBlue", "Silver", "RoyalBlue"}
                 }
             };
         }
