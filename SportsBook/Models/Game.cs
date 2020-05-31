@@ -21,8 +21,8 @@ namespace SportsBook.Models
         public bool IsStarted { get; set; }
         public string Weather { get; set; }
         public string Wind { get; set; }
-        public decimal OverUnder { get; set; }
-        public int OverUnderMoneyLine { get; set; }
+        public decimal OverUnderCurrent { get; set; }
+        public int OverUnderMoneylineCurrent { get; set; }
 
     }
 }

@@ -5,11 +5,13 @@ namespace SportsBook.Models
         public long Id { get; set; }
         public long GameId { get; set; }
         public WagerTypeEnum WagerType { get; set; }
-        public decimal? OverUnder { get; set; }
-        public int? OverUnderMoneyLine { get; set; }
-        public decimal? Spread { get; set; }
-        public int? SpreadMoneyLine { get; set; }
-        public int? MoneyLine { get; set; }        
-
+        public long? GameTeamId { get; set; }
+        public decimal WagerAmount { get; set; }        
+        public decimal WagerAmountToWin { get; set; }
+        public decimal? SpreadOfBet { get; set; }
+        public int? SpreadMoneylineOfBet { get; set; }
+        public int? MoneyLineOfBet { get; set; }
+        public decimal? OverUnderOfBet { get; set; }
+        public int? OverUnderMoneylineOfBet { get; set; }
     }
 }
