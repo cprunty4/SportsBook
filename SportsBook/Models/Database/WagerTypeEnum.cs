@@ -1,4 +1,4 @@
-namespace SportsBook.Models
+namespace SportsBook.Models.Database
 {
     public enum WagerTypeEnum
     {

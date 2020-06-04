@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SportsBook.Models
+namespace SportsBook.Models.Database
 {
     public class Game
     {
@@ -23,6 +23,5 @@ namespace SportsBook.Models
         public string Wind { get; set; }
         public decimal OverUnderCurrent { get; set; }
         public int OverUnderMoneylineCurrent { get; set; }
-
     }
 }

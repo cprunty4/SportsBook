@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SportsBook.Interfaces;
-using SportsBook.Models;
+using SportsBook.Models.Database;
 
 namespace SportsBook.Repository
 {
