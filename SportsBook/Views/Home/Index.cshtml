@@ -1,7 +1,8 @@
-﻿@{
+﻿@using SportsBook.Models.Database
+
+@{
     ViewData["Title"] = "Home Page";
 }
-
 @model List<Team>
 
 
@@ -13,7 +14,7 @@
 <div>
     <h3>Teams</h3>
     <ul>
-        @foreach(var team in Model)
+        @foreach (var team in Model)
         {
             <li>
                 @team.Location @team.Name
