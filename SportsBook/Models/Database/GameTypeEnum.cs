@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SportsBook.Models
+namespace SportsBook.Models.Database
 {
     public enum GameTypeEnum
     {
