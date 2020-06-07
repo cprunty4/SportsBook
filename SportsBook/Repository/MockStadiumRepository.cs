@@ -9,9 +9,8 @@ namespace SportsBook.Repository
 {
     public class MockStadiumRepository : IStadiumRepository
     {
-        public List<Stadium> GetAllStadium()
-        {
-            return new List<Stadium>
+        public List<Stadium> AllStadiums =>
+            new List<Stadium>
             {
                 new Stadium
                 {
@@ -39,13 +38,21 @@ namespace SportsBook.Repository
                     Name = "AT&T Stadium",
                     State = "TX",
                     ZipCode = "76011"
+                },
+                new Stadium {
+                    Address = "401 Chicago Ave",
+                    City = "Minneapolis",
+                    Id = 4,
+                    Name = "U.S. Bank Stadium",
+                    State = "MN",
+                    ZipCode = "55415"
+
                 }
             };
-        }
 
         public Stadium GetStadiumById(long stadiumId)
         {
-            return this.GetAllStadium().Where(x => x.Id == stadiumId).FirstOrDefault();
+            return this.AllStadiums.Where(x => x.Id == stadiumId).FirstOrDefault();
         }
     }
 }

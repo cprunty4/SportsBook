@@ -29,6 +29,10 @@ namespace SportsBook
 
             services.AddScoped<ITeamRepository, MockTeamRepository>();
             services.AddScoped<IStadiumRepository, MockStadiumRepository>();
+            services.AddScoped<IGameRepository, MockGameRepository>();
+            services.AddScoped<IGameTeamRepository, MockGameTeamRepository>();
+            services.AddScoped<IGameSlateRepository, MockGameSlateRepository>(); 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,16 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SportsBook.Interfaces;
 using SportsBook.Models;
+using SportsBook.Models.Views;
 
 namespace SportsBook.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GameController : ControllerBase
+    public class GameSlateController : ControllerBase
     {
-        private readonly ILogger<GameController> _logger;
-        private readonly IGameRepository _gameRepository;
-        public GameController(ILogger<GameController> logger, IGameRepository gameRepository)
+        private readonly ILogger<GameSlateController> _logger;
+        private readonly IGameSlateRepository _gameRepository;
+        public GameSlateController(ILogger<GameSlateController> logger, IGameSlateRepository gameRepository)
         {
             _logger = logger;
             _gameRepository = gameRepository;
@@ -23,9 +24,9 @@ namespace SportsBook.Controllers.Api
 
         // GET api/game
         [HttpGet("")]
-        public ActionResult<IEnumerable<string>> Getstrings()
+        public ActionResult<IEnumerable<GameSlate>> Getstrings()
         {
-            return new List<string> { "this is a test" };
+            return _gameRepository.AllGameSlates;
         }
 
         // GET api/game/5
