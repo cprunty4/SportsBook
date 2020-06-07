@@ -8,7 +8,7 @@ namespace SportsBook.Interfaces
 {
     public interface ITeamRepository
     {
-        List<Team> GetAllTeams();
+        List<Team> AllTeams { get; }
         Team GetTeamById(long teamId);
 
     }

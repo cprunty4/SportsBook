@@ -9,9 +9,9 @@ namespace SportsBook.Repository
 {
     public class MockTeamRepository : ITeamRepository
     {
-        public List<Team> GetAllTeams()
-        {
-            return new List<Team>
+        public List<Team> AllTeams => 
+        
+            new List<Team>
             {
                 new Team
                 {
@@ -21,7 +21,8 @@ namespace SportsBook.Repository
                     Name = "Packers",
                     Conference = "NFC",
                     Division = "NFC North",
-                    Colors = new List<string> {"DarkGreen", "Gold"}
+                    Colors = new List<string> {"DarkGreen", "Gold"},
+                    HomeStadiumId = 1
                 },
                 new Team
                 {
@@ -31,7 +32,8 @@ namespace SportsBook.Repository
                     Name = "Chiefs",
                     Conference = "AFC",
                     Division = "AFC West",
-                    Colors = new List<string> {"Red", "Gold"}
+                    Colors = new List<string> {"Red", "Gold"},
+                    HomeStadiumId = 2
                 },
                 new Team
                 {
@@ -42,13 +44,24 @@ namespace SportsBook.Repository
                     Conference = "NFC",
                     Division = "NFC East",
                     Colors = new List<string> {"NavyBlue", "Silver", "RoyalBlue"}
-                }
+                },
+                new Team
+                {
+                    Id = 4,
+                    Location = "Minnesota",
+                    TeamAbbreviation = "MIN",
+                    Name = "Vikings",
+                    Conference = "NFC",
+                    Division = "NFC North",
+                    Colors = new List<string> {"Purple", "Gold"},
+                    HomeStadiumId = 4
+                }                
             };
-        }
+
 
         public Team GetTeamById(long teamId)
         {
-            return this.GetAllTeams().Where(x => x.Id == teamId).FirstOrDefault();
+            return this.AllTeams.Where(x => x.Id == teamId).FirstOrDefault();
         }
     }
 }

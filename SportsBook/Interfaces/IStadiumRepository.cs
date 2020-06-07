@@ -9,7 +9,7 @@ namespace SportsBook.Interfaces
 {
     public interface IStadiumRepository
     {
-        List<Stadium> GetAllStadium();
+        List<Stadium> AllStadiums { get;}
         Stadium GetStadiumById(long stadiumId);
     }
 }

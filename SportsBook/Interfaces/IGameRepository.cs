@@ -8,7 +8,7 @@ namespace SportsBook.Interfaces
 {
     public interface IGameRepository
     {
-        List<Game> GetAllGames();
+        List<Game> AllGames { get; }
         Game GetGameById(long gameId);
     }
 }
