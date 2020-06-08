@@ -16,11 +16,15 @@ namespace SportsBook.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ITeamRepository _teamRepository;
+        private readonly IGameSlateRepository _gameSlateRepository;
 
-        public HomeController(ILogger<HomeController> logger, ITeamRepository teamRepository)
+        public HomeController(ILogger<HomeController> logger,
+            ITeamRepository teamRepository,
+            IGameSlateRepository gameSlateRepository)
         {
             _logger = logger;
             _teamRepository = teamRepository;
+            _gameSlateRepository = gameSlateRepository;
         }
 
         public IActionResult Index()
@@ -36,7 +40,8 @@ namespace SportsBook.Controllers
 
         public IActionResult GameSlate()
         {
-            return View();
+            _logger.LogInformation("entered GameSlate action");
+            return View(_gameSlateRepository.AllGameSlates);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
