@@ -1,0 +1,34 @@
+﻿@using SportsBook.Models.Views
+
+@{
+    ViewData["Title"] = "Games Slate Page";
+}
+@model List<GameSlate>
+
+@foreach (var gameSlate in Model)
+{
+    <div class='media'>
+    <div class='media-img'>
+        <img class='db media-img-item' src='/images/placeholder.png' width='300'>
+    </div>
+    <div class='media-content'>
+        <h3 class='media-title'>@gameSlate.LeagueName @gameSlate.SeasonYear Week @gameSlate.WeekNumber</h3>
+        <p class='media-description'>
+            @gameSlate.GameStartDateTime @gameSlate.StadiumName O/U @gameSlate.OverUnder
+        </p>
+        <ul class='media-meta'>
+        <li class='media-meta-item'>
+            @gameSlate.AwayTeamSpread @gameSlate.AwayTeamMoneyline
+            <span class='media-meta-label'>@gameSlate.AwayTeamName</span>
+        </li>
+        <li class='media-meta-item'>
+            @gameSlate.HomeTeamSpread @gameSlate.HomeTeamMoneyline
+            <span class='media-meta-label'>@gameSlate.HomeTeamName </span>
+        </li>
+        </ul>
+    </div>
+    </div>
+
+
+
+}

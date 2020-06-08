@@ -7,9 +7,9 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SportsBook.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "${workspaceFolder}\\SportsBook.sln",
+                "/property:Configuration=debug",
+                "/p:Platform=Any CPU"
             ],
             "problemMatcher": "$msCompile"
         },

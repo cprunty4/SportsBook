@@ -51,6 +51,14 @@ namespace SportsBook.Repository
 
                 gameSlate.WeekNumber = game.WeekNumber;
                 gameSlate.SeasonYear = game.SeasonYear;
+                gameSlate.OverUnder = game.OverUnderCurrent;
+                gameSlate.AwayTeamMoneyline = awayGameTeam.MoneyLineCurrent;
+                gameSlate.HomeTeamMoneyline = homeGameTeam.MoneyLineCurrent;
+
+                var stadium = _stadiumRepository.GetStadiumById(game.StadiumId);
+                gameSlate.StadiumName = $"{stadium.Name} {stadium.City}";
+
+                gameSlate.LeagueName = "NFL";
 
                 gameSlates.Add(gameSlate);
             }
