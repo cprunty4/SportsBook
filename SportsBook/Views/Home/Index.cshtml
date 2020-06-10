@@ -6,20 +6,29 @@
 @model List<Team>
 
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@foreach (var team in Model)
+{
+    <div class='media'>
+    <div class='media-img'>
+        <img class='db media-img-item' src='/images/@team.HelmetImageFileName' width='300'>
+    </div>
+    <div class='media-content'>
+        <p class='media-description'>
+        @team.Location @team.Name
+        </p>
+        <ul class='media-meta'>
+        <li class='media-meta-item'>
+            27
+            <span class='media-meta-label'>Likes</span>
+        </li>
+        <li class='media-meta-item'>
+            11
+            <span class='media-meta-label'>Comments</span>
+        </li>
+        </ul>
+    </div>
+    </div>    
+}
 
-<div>
-    <h3>Teams</h3>
-    <ul>
-        @foreach (var team in Model)
-        {
-            <li>
-                @team.Location @team.Name
-            </li>
-        }
 
-    </ul>
-</div>
+

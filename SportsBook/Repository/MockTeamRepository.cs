@@ -22,7 +22,8 @@ namespace SportsBook.Repository
                     Conference = "NFC",
                     Division = "NFC North",
                     Colors = new List<string> {"DarkGreen", "Gold"},
-                    HomeStadiumId = 1
+                    HomeStadiumId = 1,
+                    HelmetImageFileName = "green-bay-packers-helmet3.jpg"
                 },
                 new Team
                 {
@@ -33,7 +34,8 @@ namespace SportsBook.Repository
                     Conference = "AFC",
                     Division = "AFC West",
                     Colors = new List<string> {"Red", "Gold"},
-                    HomeStadiumId = 2
+                    HomeStadiumId = 2,
+                    HelmetImageFileName = "kansas-city-chiefs-helmet.jpg"
                 },
                 new Team
                 {
@@ -43,7 +45,8 @@ namespace SportsBook.Repository
                     Name = "Cowboys",
                     Conference = "NFC",
                     Division = "NFC East",
-                    Colors = new List<string> {"NavyBlue", "Silver", "RoyalBlue"}
+                    Colors = new List<string> {"NavyBlue", "Silver", "RoyalBlue"},
+                    HelmetImageFileName = "dallas-cowboys-helmet.jpg"
                 },
                 new Team
                 {
@@ -54,7 +57,8 @@ namespace SportsBook.Repository
                     Conference = "NFC",
                     Division = "NFC North",
                     Colors = new List<string> {"Purple", "Gold"},
-                    HomeStadiumId = 4
+                    HomeStadiumId = 4,
+                    HelmetImageFileName = "minnesota-vikings-helmet2.jpg"
                 }                
             };
 

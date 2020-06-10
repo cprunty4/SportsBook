@@ -57,7 +57,7 @@ namespace SportsBook.Repository
 
                 var stadium = _stadiumRepository.GetStadiumById(game.StadiumId);
                 gameSlate.StadiumName = $"{stadium.Name} {stadium.City}";
-
+                gameSlate.StadiumImageFileName = stadium.StadiumImageFileName;
                 gameSlate.LeagueName = "NFL";
 
                 gameSlates.Add(gameSlate);
