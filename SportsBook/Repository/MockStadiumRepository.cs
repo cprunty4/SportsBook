@@ -45,7 +45,8 @@ namespace SportsBook.Repository
                     Id = 4,
                     Name = "U.S. Bank Stadium",
                     State = "MN",
-                    ZipCode = "55415"
+                    ZipCode = "55415",
+                    StadiumImageFileName = "us-bank-stadium.jpg"
 
                 }
             };

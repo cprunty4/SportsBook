@@ -22,6 +22,7 @@ namespace SportsBook.Models.Views
         public int OverUnderMoneyline { get; set; }
         public DateTime? GameStartDateTime { get; set; }
         public string StadiumName { get; set; }
+        public string StadiumImageFileName { get; set; }
 
     }
 }

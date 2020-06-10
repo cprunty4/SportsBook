@@ -17,6 +17,7 @@ namespace SportsBook.Models.Database
         public string Division { get; set; }
         public List<string> Colors { get; set; }
         public long? HomeStadiumId { get; set; }
+        public string HelmetImageFileName { get; set; }
 
     }
 }
