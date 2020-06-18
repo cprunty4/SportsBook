@@ -8,11 +8,13 @@ namespace SportsBook.Models.Views
         public string GameType { get; set; }
         public int WeekNumber { get; set; }
         public int SeasonYear { get; set; }
+        public string AwayTeamFullName { get; set; }
         public string AwayTeamName { get; set; }
         
         public decimal AwayTeamSpread { get; set; }
         public int AwayTeamSpreadMoneyline { get; set; }
         public int AwayTeamMoneyline { get; set; }
+        public string HomeTeamFullName { get; set; }
         public string HomeTeamName { get; set; }
 
         public decimal HomeTeamSpread { get; set; }
