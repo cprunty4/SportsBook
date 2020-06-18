@@ -18,19 +18,23 @@ namespace SportsBook.Controllers
         private readonly ITeamRepository _teamRepository;
         private readonly IGameSlateRepository _gameSlateRepository;
 
+        private readonly ITeamMetaDataRepository _teamMetaDataRepository;
+
         public HomeController(ILogger<HomeController> logger,
             ITeamRepository teamRepository,
-            IGameSlateRepository gameSlateRepository)
+            IGameSlateRepository gameSlateRepository,
+            ITeamMetaDataRepository teamMetaDataRepository)
         {
             _logger = logger;
             _teamRepository = teamRepository;
             _gameSlateRepository = gameSlateRepository;
+            _teamMetaDataRepository = teamMetaDataRepository;
         }
 
         public IActionResult Index()
         {
             _logger.LogInformation("entered Home controller");
-            return View(_teamRepository.AllTeams);
+            return View(_teamMetaDataRepository.AllTeamsMetaData);
         }
 
         public IActionResult Privacy()

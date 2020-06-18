@@ -42,8 +42,10 @@ namespace SportsBook.Repository
                 var awayTeam = _teamRepository.GetTeamById(awayGameTeam.TeamId);
                 var homeTeam = _teamRepository.GetTeamById(homeGameTeam.TeamId);
 
-                gameSlate.AwayTeamName = awayTeam.TeamName;
-                gameSlate.HomeTeamName = homeTeam.TeamName;
+                gameSlate.AwayTeamFullName = awayTeam.TeamName;
+                gameSlate.HomeTeamFullName = homeTeam.TeamName;
+                gameSlate.AwayTeamName = awayTeam.Name;
+                gameSlate.HomeTeamName = homeTeam.Name;
 
                 gameSlate.GameStartDateTime = game.StartDateTime;
                 gameSlate.AwayTeamSpread = awayGameTeam.SpreadCurrent;
