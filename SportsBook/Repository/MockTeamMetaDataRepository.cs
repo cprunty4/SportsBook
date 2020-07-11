@@ -1,17 +1,20 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 using SportsBook.Interfaces;
-using SportsBook.Models.Views;
+using SportsBook.Models;
 
 namespace SportsBook.Repository
 {
     public class MockTeamMetaDataRepository : ITeamMetaDataRepository
     {
         private readonly ITeamRepository _teamRepository;
+        private readonly IConfiguration _configuration;
 
-        public MockTeamMetaDataRepository(ITeamRepository teamRepository)
+        public MockTeamMetaDataRepository(ITeamRepository teamRepository, IConfiguration configuration)
         {
             _teamRepository = teamRepository;
+            _configuration = configuration;
         }        
         public List<TeamMetaData> AllTeamsMetaData => this.FetchAllTeamsMetaData();
 

@@ -1,5 +1,5 @@
-﻿using SportsBook.Models;
-using SportsBook.Models.Database;
+﻿using SportsBook.Entities;
+using SportsBook.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

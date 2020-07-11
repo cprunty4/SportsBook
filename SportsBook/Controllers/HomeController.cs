@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SportsBook.Interfaces;
-using SportsBook.Models.Database;
 using SportsBook.Models;
+using SportsBook.Entities;
 using SportsBook.Repository;
 
 namespace SportsBook.Controllers

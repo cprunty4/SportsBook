@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SportsBook.Models;
+using SportsBook.Entities;
 
-namespace Controllers.Controllers
+namespace SportsBook.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

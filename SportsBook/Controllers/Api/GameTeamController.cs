@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SportsBook.Models.Database;
+using SportsBook.Entities;
+using SportsBook.Models;
 
-namespace Controllers.Controllers
+namespace SportsBook.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

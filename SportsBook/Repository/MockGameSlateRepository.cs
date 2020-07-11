@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using SportsBook.Interfaces;
-using SportsBook.Models.Views;
+using SportsBook.Models;
+using SportsBook.Entities;
 
 namespace SportsBook.Repository
 {

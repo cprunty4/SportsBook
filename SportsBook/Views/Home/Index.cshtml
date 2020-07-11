@@ -1,34 +1,31 @@
-﻿@using SportsBook.Models.Views
+﻿@using SportsBook.Models
 
 @{
-    ViewData["Title"] = "Home Page";
+ViewData["Title"] = "Home Page";
 }
 @model List<TeamMetaData>
 
 
-@foreach (var team in Model)
-{
+    @foreach (var team in Model)
+    {
     <div class='media'>
-    <div class='media-img'>
-        <img class='db media-img-item' src='/images/@team.TeamHelmetImageFileName' width='300'>
+        <div class='media-img'>
+            <img class='db media-img-item' src='/images/@team.TeamHelmetImageFileName' width='300'>
+        </div>
+        <div class='media-content'>
+            <p class='media-description'>
+                @team.TeamLocation @team.TeamName
+            </p>
+            <ul class='media-meta'>
+                <li class='media-meta-item'>
+                    @team.NumberOfLikes
+                    <span class='media-meta-label'>Likes</span>
+                </li>
+                <li class='media-meta-item'>
+                    @team.NumberOfComments
+                    <span class='media-meta-label'>Comments</span>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class='media-content'>
-        <p class='media-description'>
-        @team.TeamLocation @team.TeamName
-        </p>
-        <ul class='media-meta'>
-        <li class='media-meta-item'>
-            @team.NumberOfLikes
-            <span class='media-meta-label'>Likes</span>
-        </li>
-        <li class='media-meta-item'>
-            @team.NumberOfComments
-            <span class='media-meta-label'>Comments</span>
-        </li>
-        </ul>
-    </div>
-    </div>    
-}
-
-
-
+    }
