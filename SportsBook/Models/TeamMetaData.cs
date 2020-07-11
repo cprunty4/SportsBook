@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SportsBook.Models.Views
+namespace SportsBook.Models
 {
     public class TeamMetaData
     {
@@ -12,5 +12,6 @@ namespace SportsBook.Models.Views
         public int NumberOfLikes { get; set; }
         public int NumberOfComments { get; set; }
         public List<string> Comments { get; set; }
+        public int EntityId { get; set; }
     }
 }

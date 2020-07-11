@@ -1,4 +1,4 @@
-namespace SportsBook.Models.Database
+namespace SportsBook.Entities
 {
     public class Wager
     {

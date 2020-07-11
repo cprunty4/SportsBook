@@ -1,4 +1,4 @@
-namespace SportsBook.Models
+namespace SportsBook.Entities
 {
     public enum OverUnderTypeEnum
     {

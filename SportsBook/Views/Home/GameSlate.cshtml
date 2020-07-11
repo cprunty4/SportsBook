@@ -1,38 +1,34 @@
-﻿@using SportsBook.Models.Views
-
-@{
-    ViewData["Title"] = "NFL Games Slate Page";
-}
+﻿@using SportsBook.Models
+@{ ViewData["Title"] = "NFL Games Slate Page"; }
 @model List<GameSlate>
 
-<h4>
-    NFL 2020 Week 1
-</h4>
+    <h4>
+        NFL 2020 Week 1
+    </h4>
 
-@foreach (var gameSlate in Model)
-{
+    @foreach (var gameSlate in Model) {
     <div class='media'>
-    <div class='media-img'>
-        <img class='db media-img-item' src='/images/@gameSlate.StadiumImageFileName' width='300'>
-    </div>
-    <div class='media-content'>
-        <h3 class='media-title'></h3>
-        <p class='media-description'>
-            @gameSlate.GameStartDateTime @gameSlate.StadiumName O/U @gameSlate.OverUnder
-        </p>
-        <ul class='media-meta'>
-        <li class='media-meta-item'>
-            @gameSlate.AwayTeamSpread @gameSlate.AwayTeamMoneyline
-            <span class='media-meta-label'>@gameSlate.AwayTeamFullName</span>
-        </li>
-        <li class='media-meta-item'>
-            @gameSlate.HomeTeamSpread @gameSlate.HomeTeamMoneyline
-            <span class='media-meta-label'>@gameSlate.HomeTeamFullName </span>
-        </li>
-        </ul>
-    </div>
+        <div class='media-img'>
+            <img class='db media-img-item' src='/images/@gameSlate.StadiumImageFileName' width='300'>
+        </div>
+        <div class='media-content'>
+            <h3 class='media-title'></h3>
+            <p class='media-description'>
+                @gameSlate.GameStartDateTime @gameSlate.StadiumName O/U @gameSlate.OverUnder
+            </p>
+            <ul class='media-meta'>
+                <li class='media-meta-item'>
+                    @gameSlate.AwayTeamSpread @gameSlate.AwayTeamMoneyline
+                    <span class='media-meta-label'>@gameSlate.AwayTeamFullName</span>
+                </li>
+                <li class='media-meta-item'>
+                    @gameSlate.HomeTeamSpread @gameSlate.HomeTeamMoneyline
+                    <span class='media-meta-label'>@gameSlate.HomeTeamFullName </span>
+                </li>
+            </ul>
+        </div>
     </div>
 
 
 
-}
+    }

@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SportsBook.Interfaces;
+using SportsBook.Entities;
 using SportsBook.Models;
-using SportsBook.Models.Views;
 
 namespace SportsBook.Controllers.Api
 {

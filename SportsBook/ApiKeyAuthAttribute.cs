@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
-namespace SportsBook
+namespace SportsBook.Entities
 {
     [AttributeUsage(validOn: AttributeTargets.Class)]
     public class ApiKeyAuthAttribute : Attribute, IAsyncActionFilter

@@ -1,4 +1,4 @@
-﻿using SportsBook.Models.Database;
+﻿using SportsBook.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

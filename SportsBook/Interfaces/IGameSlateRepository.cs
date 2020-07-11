@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using SportsBook.Models.Views;
+using SportsBook.Models;
 
 namespace SportsBook.Interfaces
 {

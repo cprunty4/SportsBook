@@ -1,6 +1,6 @@
 using System;
 
-namespace SportsBook.Models.Views
+namespace SportsBook.Models
 {
     public class GameSlate
     {
