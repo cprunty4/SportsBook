@@ -23,7 +23,8 @@ namespace SportsBook.Repository
                     Division = "NFC North",
                     Colors = new List<string> {"DarkGreen", "Gold"},
                     HomeStadiumId = 1,
-                    HelmetImageFileName = "green-bay-packers-helmet3.jpg"
+                    HelmetImageFileName = "green-bay-packers-helmet3.jpg",
+                    EntityId =3
                 },
                 new Team
                 {
@@ -35,7 +36,8 @@ namespace SportsBook.Repository
                     Division = "AFC West",
                     Colors = new List<string> {"Red", "Gold"},
                     HomeStadiumId = 2,
-                    HelmetImageFileName = "kansas-city-chiefs-helmet.jpg"
+                    HelmetImageFileName = "kansas-city-chiefs-helmet.jpg",
+                    EntityId=4
                 },
                 new Team
                 {

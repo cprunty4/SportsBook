@@ -18,6 +18,7 @@ namespace SportsBook.Entities
         public List<string> Colors { get; set; }
         public long? HomeStadiumId { get; set; }
         public string HelmetImageFileName { get; set; }
+        public int? EntityId { get; set; }        
 
     }
 }
