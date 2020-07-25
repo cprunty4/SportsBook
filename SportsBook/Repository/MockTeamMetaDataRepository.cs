@@ -39,7 +39,7 @@ namespace SportsBook.Repository
                 teamMetaDate.TeamLocation = team.Location;
                 teamMetaDate.TeamName = team.Name;
                 teamMetaDate.TeamHelmetImageFileName = team.HelmetImageFileName;
-                teamMetaDate.NumberOfComments = this.GetNumberOfComments(team.Id);
+                teamMetaDate.NumberOfComments = this.GetNumberOfComments(team.EntityId);
                 teamMetaDate.NumberOfLikes = this.GetNumberOfLikes(team.EntityId);
                 teamsMetaData.Add(teamMetaDate);
             }
@@ -48,7 +48,7 @@ namespace SportsBook.Repository
             return teamsMetaData;
         }
 
-        private int GetNumberOfComments(long id)
+        private int GetNumberOfComments(int? teamEntityId)
         {
 
             // TODO Call Service here that retrieves data from Entities API

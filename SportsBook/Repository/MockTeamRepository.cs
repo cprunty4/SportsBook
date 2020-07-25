@@ -24,7 +24,7 @@ namespace SportsBook.Repository
                     Colors = new List<string> {"DarkGreen", "Gold"},
                     HomeStadiumId = 1,
                     HelmetImageFileName = "green-bay-packers-helmet3.jpg",
-                    EntityId =3
+                    EntityId =1
                 },
                 new Team
                 {
@@ -37,7 +37,7 @@ namespace SportsBook.Repository
                     Colors = new List<string> {"Red", "Gold"},
                     HomeStadiumId = 2,
                     HelmetImageFileName = "kansas-city-chiefs-helmet.jpg",
-                    EntityId=4
+                    EntityId=2
                 },
                 new Team
                 {
