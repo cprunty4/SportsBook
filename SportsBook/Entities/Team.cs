@@ -19,6 +19,5 @@ namespace SportsBook.Entities
         public long? HomeStadiumId { get; set; }
         public string HelmetImageFileName { get; set; }
         public int? EntityId { get; set; }        
-
     }
 }

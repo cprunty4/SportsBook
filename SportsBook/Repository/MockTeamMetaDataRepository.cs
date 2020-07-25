@@ -20,7 +20,6 @@ namespace SportsBook.Repository
         {
             _teamRepository = teamRepository;
             _configuration = configuration;
-
             baseUrl = _configuration.GetSection("EntitiesApiOptions").GetValue<string>("BaseUrl");
         }        
         public List<TeamMetaData> AllTeamsMetaData => this.FetchAllTeamsMetaData();

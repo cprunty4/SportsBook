@@ -12,6 +12,6 @@ namespace SportsBook.Models
         public int NumberOfLikes { get; set; }
         public int NumberOfComments { get; set; }
         public List<string> Comments { get; set; }
-
+        public int EntityId { get; set; }
     }
 }
