@@ -5,11 +5,13 @@ My plan is release a NFL betting site before the start of the 2020 Season which 
 
 
 # background
-I started this code in 2020 that runs on the Azure cloud <a href="https://cullens-sportsbook.azurewebsites.net/">click here</a>
+This repo contains the front end code.  I started this code in 2020. It runs on the Azure cloud <a href="https://cullens-sportsbook.azurewebsites.net/">cullens-sportsbook.azurewebsites.net</a>
 
-This repo contains the front end code.  The back end api code is in a different github repo that I started in 2017.   The back end has a admin tool that connects to a Azure SQL database.  <a href="https://entity-types-backend-admin.azurewebsites.net/"> click here</a>
+The back end api code is in a different github repo that I started in 2017. The code has not been made public yet.  The tool connects to a Azure SQL database.  <a href="https://entity-types-backend-admin.azurewebsites.net/"> entity-types-backend-admin.azurewebsites.net</a>
 
-I'm using Visual Studio Code. The code for the back end admin has not been made public yet.  here's some commands I for debugging:
+I'm using Visual Studio Code. 
+
+Here's some commands I use for debugging:
 
 # build command
 dotnet build .\\SportsBook.sln /p:Configuration=Debug /p:Platform="Any CPU"
