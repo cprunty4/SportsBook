@@ -1,7 +1,7 @@
 # mission
-Currently 6 states have legalized sports betting (New Jersey, Pennsylvania, Indiana etc)  I want to build an app that has the capability to enter the online sports gambiling space.   
+Currently 6 states have legalized sports betting (New Jersey, Pennsylvania, Indiana etc)  I want to build an app that has the capability to enter the online sports gambling space.   
 
-My plan is release a NFL betting site before the start of the 2020 Season which starts September 13th.  My goal is start specific to NFL football but build a system that scalable to the other professional sports.
+My plan is release a NFL betting site before the start of the 2020 Season on September 13th.  My goal is start specific to NFL football but build a system that scalable to the other professional sports.
 
 
 # background
