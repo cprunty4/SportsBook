@@ -18,3 +18,13 @@ dotnet build .\\SportsBook.sln /p:Configuration=Debug /p:Platform="Any CPU"
 
 # run command
 dotnet run .\\SportsBook.sln /p:Configuration=Debug /p:Platform="Any CPU"
+
+# watch command
+<ul>
+  <li>From VSCode open Terminal</li>
+  <li>Type: <b>dotnet watch run</b></li>
+  <li>Goto Run .Net Core Launcher</li>
+  <li><b>Select .Net Core Attach</b></li>
+  <li>Select a dotnet.exe process</li>
+</ul>
+    
