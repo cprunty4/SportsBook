@@ -61,7 +61,8 @@ namespace SportsBook.Repository
                     Division = "NFC North",
                     Colors = new List<string> {"Purple", "Gold"},
                     HomeStadiumId = 4,
-                    HelmetImageFileName = "Minnesota_Vikings_logo.png"
+                    HelmetImageFileName = "Minnesota_Vikings_logo.png",
+                    EntityId = 4
                 },
                 new Team
                 {
@@ -72,7 +73,8 @@ namespace SportsBook.Repository
                     Conference = "NFC",
                     Division = "NFC West",
                     Colors = new List<string> {"College Navy", "Action Green", "Wolf Grey"},
-                    HelmetImageFileName = "Seattle_Seahawks_logo.png"
+                    HelmetImageFileName = "Seattle_Seahawks_logo.png",
+                    EntityId = 5
                 }                                    
             };
 
