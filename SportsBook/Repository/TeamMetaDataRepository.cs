@@ -9,14 +9,14 @@ using SportsBook.Models;
 
 namespace SportsBook.Repository
 {
-    public class MockTeamMetaDataRepository : ITeamMetaDataRepository
+    public class TeamMetaDataRepository : ITeamMetaDataRepository
     {
         private readonly ITeamRepository _teamRepository;
         private readonly IConfiguration _configuration;
 
         private string baseUrl = string.Empty;        
 
-        public MockTeamMetaDataRepository(ITeamRepository teamRepository, IConfiguration configuration)
+        public TeamMetaDataRepository(ITeamRepository teamRepository, IConfiguration configuration)
         {
             _teamRepository = teamRepository;
             _configuration = configuration;
@@ -49,8 +49,23 @@ namespace SportsBook.Repository
 
         private int GetNumberOfComments(int? teamEntityId)
         {
+            List<EntityNote> entityNotes = new List<EntityNote>();
+            // Call Service here that retrieves data from Entities API
 
-            // TODO Call Service here that retrieves data from Entities API
+            if (teamEntityId != null)
+            {
+                var client = new HttpClient();
+
+                string response = client.GetStringAsync($"{baseUrl}/api/EntityNotes/{teamEntityId}").Result;
+
+                entityNotes = JsonConvert.DeserializeObject<List<EntityNote>>(response);
+
+                if (entityNotes.Count > 0)
+                {
+                    return entityNotes.Count;
+                }
+            }
+
             return 0;
         }
 

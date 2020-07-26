@@ -5,6 +5,7 @@ ViewData["Title"] = "Home Page";
 }
 @model List<TeamMetaData>
 
+<p><b><font color="red">LIVE BETTING</font> Coming Soon...</b></p>
 
     @foreach (var team in Model)
     {
@@ -23,7 +24,7 @@ ViewData["Title"] = "Home Page";
                 </li>
                 <li class='media-meta-item'>
                     @team.NumberOfComments
-                    <span class='media-meta-label'>Comments</span>
+                    <span class='media-meta-label'><a href="/comments/index?teamId=@team.TeamId">Comments</a></span>
                 </li>
             </ul>
         </div>

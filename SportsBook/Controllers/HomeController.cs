@@ -39,6 +39,7 @@ namespace SportsBook.Controllers
 
         public IActionResult Privacy()
         {
+            ViewBag.Message1 = "This is using Watch";
             return View();
         }
 

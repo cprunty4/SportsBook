@@ -48,7 +48,8 @@ namespace SportsBook.Repository
                     Conference = "NFC",
                     Division = "NFC East",
                     Colors = new List<string> {"NavyBlue", "Silver", "RoyalBlue"},
-                    HelmetImageFileName = "dallas-cowboys-helmet.jpg"
+                    HelmetImageFileName = "dallas-cowboys-helmet.jpg",
+                    EntityId = 3
                 },
                 new Team
                 {
