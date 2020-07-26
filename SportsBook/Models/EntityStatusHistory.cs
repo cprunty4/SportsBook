@@ -2,6 +2,9 @@ using System;
 
 namespace SportsBook.Models
 {
+    /// <summary>
+    /// TODO Should probably be moved to Entities namespace
+    /// </summary>
     public class EntityStatusHistory
     {
         public int id { get; set; } 

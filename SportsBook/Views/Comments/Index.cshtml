@@ -1,0 +1,31 @@
+﻿@using SportsBook.Models
+
+@{
+ViewData["Title"] = "Comments Page";
+}
+@model CommentsData
+
+<div class='media'>
+    <div class='media-img'>
+        <img class='db media-img-item' src='/images/@Model.TeamHelmetImageFileName' width='300'>
+    </div>
+    <div class='media-content'>
+        <p class='media-description'>
+            @Model.TeamLocation @Model.TeamName
+        </p>
+        <ul class='media-meta'>
+            <li class='media-meta-item'>
+                @Model.NumberOfComments
+                <span class='media-meta-label'>Comments</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+@foreach(var comment in Model.Comments) {
+    <div>
+        <p><b>@comment.UpdatedDate @comment.UpdatedBy</b></p>
+        <p>@comment.Note</p>
+    </div>
+}
+  

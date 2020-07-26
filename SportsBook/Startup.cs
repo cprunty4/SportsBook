@@ -32,7 +32,8 @@ namespace SportsBook
             services.AddScoped<IGameRepository, MockGameRepository>();
             services.AddScoped<IGameTeamRepository, MockGameTeamRepository>();
             services.AddScoped<IGameSlateRepository, MockGameSlateRepository>();
-            services.AddScoped<ITeamMetaDataRepository, MockTeamMetaDataRepository>();
+            services.AddScoped<ITeamMetaDataRepository, TeamMetaDataRepository>();
+            services.AddScoped<ICommentsRepository, CommentsRepository>();            
 
         }
 
