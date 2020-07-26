@@ -23,7 +23,7 @@ namespace SportsBook.Repository
                     Division = "NFC North",
                     Colors = new List<string> {"DarkGreen", "Gold"},
                     HomeStadiumId = 1,
-                    HelmetImageFileName = "green-bay-packers-helmet3.jpg",
+                    HelmetImageFileName = "Green_Bay_Packers_logo.png",
                     EntityId =1
                 },
                 new Team
@@ -36,7 +36,7 @@ namespace SportsBook.Repository
                     Division = "AFC West",
                     Colors = new List<string> {"Red", "Gold"},
                     HomeStadiumId = 2,
-                    HelmetImageFileName = "kansas-city-chiefs-helmet.jpg",
+                    HelmetImageFileName = "Kansas_City_Chiefs_logo.svg",
                     EntityId=2
                 },
                 new Team
@@ -48,7 +48,7 @@ namespace SportsBook.Repository
                     Conference = "NFC",
                     Division = "NFC East",
                     Colors = new List<string> {"NavyBlue", "Silver", "RoyalBlue"},
-                    HelmetImageFileName = "dallas-cowboys-helmet.jpg",
+                    HelmetImageFileName = "Dallas_Cowboys.png",
                     EntityId = 3
                 },
                 new Team
@@ -61,8 +61,19 @@ namespace SportsBook.Repository
                     Division = "NFC North",
                     Colors = new List<string> {"Purple", "Gold"},
                     HomeStadiumId = 4,
-                    HelmetImageFileName = "minnesota-vikings-helmet2.jpg"
-                }                
+                    HelmetImageFileName = "Minnesota_Vikings_logo.png"
+                },
+                new Team
+                {
+                    Id = 5,
+                    Location = "Seattle",
+                    TeamAbbreviation = "SEA",
+                    Name = "Seahawks",
+                    Conference = "NFC",
+                    Division = "NFC West",
+                    Colors = new List<string> {"College Navy", "Action Green", "Wolf Grey"},
+                    HelmetImageFileName = "Seattle_Seahawks_logo.png"
+                }                                    
             };
 
 
