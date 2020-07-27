@@ -1,9 +1,8 @@
 using System;
 
-namespace SportsBook.Models
+namespace SportsBook.Entities
 {
     /// <summary>
-    /// TODO Should probably be moved to Entities namespace
     /// </summary>
     public class EntityNote
     {

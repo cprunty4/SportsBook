@@ -25,7 +25,7 @@ namespace SportsBook.Repository
 
         public List<EntityNote> AllComments => throw new System.NotImplementedException();
 
-        public List<EntityNote> GetComments(int teamEntityId)
+        public List<EntityNote> GetComments(int? teamEntityId)
         {
             List<EntityNote> entityNotes = new List<EntityNote>();
             // Call Service here that retrieves data from Entities API
@@ -52,8 +52,8 @@ namespace SportsBook.Repository
 
             commentsData.TeamName = team.Name;
             commentsData.TeamLocation = team.Location;
-            commentsData.TeamHelmetImageFileName = team.HelmetImageFileName;
-            commentsData.Comments = this.GetComments((int)team.EntityId);
+            commentsData.LogoImage = team.LogoImage;
+            commentsData.Comments = this.GetComments(team.EntityId);
             commentsData.NumberOfComments = commentsData.Comments.Count;
 
             
