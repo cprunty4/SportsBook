@@ -75,7 +75,32 @@ namespace SportsBook.Repository
                     Colors = new List<string> {"College Navy", "Action Green", "Wolf Grey"},
                     LogoImage = "Seattle_Seahawks_logo.png",
                     EntityId = 5
-                }                                    
+                },
+                new Team
+                {
+                    Id = 6,
+                    Location = "Tennessee",
+                    TeamAbbreviation = "TEN",
+                    Name = "Titans",
+                    Conference = "AFC",
+                    Division = "AFC South",
+                    Colors = new List<string> {"Navy", "Titans Blue", "Red", "Silver", "White"},
+                    LogoImage = "Tennessee_Titans_logo.svg.png",
+                    EntityId = 6
+                },
+                new Team
+                {
+                    Id = 7,
+                    Location = "New England",
+                    TeamAbbreviation = "NE",
+                    Name = "Patriots",
+                    Conference = "AFC",
+                    Division = "AFC East",
+                    Colors = new List<string> {"Navy Blue", "Red", "Silver", "White"},
+                    LogoImage = "New_England_Patriots_logo.svg.png",
+                    EntityId = 7
+                }
+
             };
 
 
