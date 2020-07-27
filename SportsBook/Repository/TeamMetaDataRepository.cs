@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using SportsBook.Entities;
 using SportsBook.Interfaces;
 using SportsBook.Models;
 
@@ -13,20 +14,25 @@ namespace SportsBook.Repository
     {
         private readonly ITeamRepository _teamRepository;
         private readonly IConfiguration _configuration;
+        private readonly ICommentsRepository _commentsRepository;
 
         private string baseUrl = string.Empty;        
 
-        public TeamMetaDataRepository(ITeamRepository teamRepository, IConfiguration configuration)
+        public TeamMetaDataRepository(ITeamRepository teamRepository,
+            IConfiguration configuration,
+            ICommentsRepository commentsRepository
+            )
         {
             _teamRepository = teamRepository;
             _configuration = configuration;
             baseUrl = _configuration.GetSection("EntitiesApiOptions").GetValue<string>("BaseUrl");
+            _commentsRepository = commentsRepository;
         }        
         public List<TeamMetaData> AllTeamsMetaData => this.FetchAllTeamsMetaData();
 
         private List<TeamMetaData> FetchAllTeamsMetaData()
         {
-            var teamsMetaData = new List<TeamMetaData>();
+            List<TeamMetaData> teamsMetaData = new List<TeamMetaData>();
 
             var teams = _teamRepository.AllTeams;
 
@@ -37,14 +43,17 @@ namespace SportsBook.Repository
                 teamMetaDate.TeamId = team.Id;
                 teamMetaDate.TeamLocation = team.Location;
                 teamMetaDate.TeamName = team.Name;
-                teamMetaDate.TeamHelmetImageFileName = team.HelmetImageFileName;
-                teamMetaDate.NumberOfComments = this.GetNumberOfComments(team.EntityId);
+                teamMetaDate.LogoImage = team.LogoImage;
+                List<EntityNote> comments = _commentsRepository.GetComments(team.EntityId);
+                // teamMetaDate.NumberOfComments = this.GetNumberOfComments(team.EntityId);
+                teamMetaDate.NumberOfComments = comments.Count;
+                if (comments.Count > 0)
+                    teamMetaDate.LastCommentUpdatedDate = (from c in comments select c.UpdatedDate).Max();
                 teamMetaDate.NumberOfLikes = this.GetNumberOfLikes(team.EntityId);
                 teamsMetaData.Add(teamMetaDate);
             }
 
-
-            return teamsMetaData;
+            return teamsMetaData.Select(x => x).OrderByDescending(x => x.LastCommentUpdatedDate).ToList();
         }
 
         private int GetNumberOfComments(int? teamEntityId)

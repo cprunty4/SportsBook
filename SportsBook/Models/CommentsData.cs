@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SportsBook.Entities;
 
 namespace SportsBook.Models
 {
@@ -6,7 +7,7 @@ namespace SportsBook.Models
     {
         public List<EntityNote> Comments {get; set;}
         public string TeamName { get; set; } 
-        public string TeamHelmetImageFileName { get; set; }     
+        public string LogoImage { get; set; }     
         public int NumberOfComments { get; set; }
         public string TeamLocation { get; set; }                  
 
