@@ -50,8 +50,8 @@ namespace SportsBook.Repository
             CommentsData commentsData = new CommentsData();
             Team team = _teamRepository.AllTeams.Where(x => x.Id == teamId).First();
 
-            commentsData.TeamName = team.Name;
-            commentsData.TeamLocation = team.Location;
+            commentsData.TeamName = team.NickName;
+            commentsData.TeamLocation = team.LocationName;
             commentsData.LogoImage = team.LogoImage;
             commentsData.Comments = this.GetComments(team.EntityId);
             commentsData.NumberOfComments = commentsData.Comments.Count;

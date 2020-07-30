@@ -41,8 +41,8 @@ namespace SportsBook.Repository
                 var teamMetaDate = new TeamMetaData();
 
                 teamMetaDate.TeamId = team.Id;
-                teamMetaDate.TeamLocation = team.Location;
-                teamMetaDate.TeamName = team.Name;
+                teamMetaDate.TeamLocation = team.LocationName;
+                teamMetaDate.TeamName = team.NickName;
                 teamMetaDate.LogoImage = team.LogoImage;
                 List<EntityNote> comments = _commentsRepository.GetComments(team.EntityId);
                 // teamMetaDate.NumberOfComments = this.GetNumberOfComments(team.EntityId);

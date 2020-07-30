@@ -16,9 +16,9 @@ namespace SportsBook.Repository
                 new Team
                 {
                     Id = 1,
-                    Location = "Green Bay",
+                    LocationName = "Green Bay",
                     TeamAbbreviation = "GBP",
-                    Name = "Packers",
+                    NickName = "Packers",
                     Conference = "NFC",
                     Division = "NFC North",
                     Colors = new List<string> {"DarkGreen", "Gold"},
@@ -29,9 +29,9 @@ namespace SportsBook.Repository
                 new Team
                 {
                     Id = 2,
-                    Location = "Kansas City",
+                    LocationName = "Kansas City",
                     TeamAbbreviation = "KC",
-                    Name = "Chiefs",
+                    NickName = "Chiefs",
                     Conference = "AFC",
                     Division = "AFC West",
                     Colors = new List<string> {"Red", "Gold"},
@@ -42,9 +42,9 @@ namespace SportsBook.Repository
                 new Team
                 {
                     Id = 3,
-                    Location = "Dallas",
+                    LocationName = "Dallas",
                     TeamAbbreviation = "DAL",
-                    Name = "Cowboys",
+                    NickName = "Cowboys",
                     Conference = "NFC",
                     Division = "NFC East",
                     Colors = new List<string> {"NavyBlue", "Silver", "RoyalBlue"},
@@ -54,9 +54,9 @@ namespace SportsBook.Repository
                 new Team
                 {
                     Id = 4,
-                    Location = "Minnesota",
+                    LocationName = "Minnesota",
                     TeamAbbreviation = "MIN",
-                    Name = "Vikings",
+                    NickName = "Vikings",
                     Conference = "NFC",
                     Division = "NFC North",
                     Colors = new List<string> {"Purple", "Gold"},
@@ -67,9 +67,9 @@ namespace SportsBook.Repository
                 new Team
                 {
                     Id = 5,
-                    Location = "Seattle",
+                    LocationName = "Seattle",
                     TeamAbbreviation = "SEA",
-                    Name = "Seahawks",
+                    NickName = "Seahawks",
                     Conference = "NFC",
                     Division = "NFC West",
                     Colors = new List<string> {"College Navy", "Action Green", "Wolf Grey"},
@@ -79,9 +79,9 @@ namespace SportsBook.Repository
                 new Team
                 {
                     Id = 6,
-                    Location = "Tennessee",
+                    LocationName = "Tennessee",
                     TeamAbbreviation = "TEN",
-                    Name = "Titans",
+                    NickName = "Titans",
                     Conference = "AFC",
                     Division = "AFC South",
                     Colors = new List<string> {"Navy", "Titans Blue", "Red", "Silver", "White"},
@@ -91,14 +91,50 @@ namespace SportsBook.Repository
                 new Team
                 {
                     Id = 7,
-                    Location = "New England",
+                    LocationName = "New England",
                     TeamAbbreviation = "NE",
-                    Name = "Patriots",
+                    NickName = "Patriots",
                     Conference = "AFC",
                     Division = "AFC East",
                     Colors = new List<string> {"Navy Blue", "Red", "Silver", "White"},
                     LogoImage = "New_England_Patriots_logo.svg.png",
                     EntityId = 7
+                },
+                new Team
+                {
+                    Id = 8,
+                    LocationName = "Indianapolis",
+                    TeamAbbreviation = "IND",
+                    NickName = "Colts",
+                    Conference = "AFC",
+                    Division = "AFC South",
+                    Colors = new List<string> {"Speed Blue", "White", "Facemask Gray", "Black"},
+                    LogoImage = "Indianapolis_Colts_logo.svg.png",
+                    EntityId = 8
+                },
+                new Team
+                {
+                    Id = 9,
+                    LocationName = "Los Angeles",
+                    TeamAbbreviation = "LAC",
+                    NickName = "Chargers",
+                    Conference = "AFC",
+                    Division = "AFC West",
+                    Colors = new List<string> {"Powder Blue", "Sunshine Gold", "White"},
+                    LogoImage = "Los_Angeles_Chargers_logo.svg.png",
+                    EntityId = 9
+                },
+                new Team
+                {
+                    Id = 9,
+                    LocationName = "Cincinnati",
+                    TeamAbbreviation = "CIN",
+                    NickName = "Bengals",
+                    Conference = "AFC",
+                    Division = "AFC North",
+                    Colors = new List<string> {"Black", "Orange", "White"},
+                    LogoImage = "Cincinnati_Bengals_logo.svg.png",
+                    EntityId = 9
                 }
 
             };
