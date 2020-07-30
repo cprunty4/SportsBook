@@ -26,5 +26,7 @@ namespace SportsBook.Models
         public string StadiumName { get; set; }
         public string StadiumImageFileName { get; set; }
 
+        public long GameId { get; set; }
+
     }
 }

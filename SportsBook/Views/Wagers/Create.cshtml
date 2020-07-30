@@ -1,0 +1,30 @@
+@using SportsBook.Models
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model CreateWager
+
+@using (Html.BeginForm())
+{
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <b>@Model.AwayTeamName at @Model.HomeTeamName</b>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Place Bet" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+</div>
+}
+
+<script src="~/js/wagers.js"></script>

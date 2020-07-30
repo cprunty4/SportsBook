@@ -7,11 +7,11 @@ namespace SportsBook.Entities
 {
     public class Team
     {
-        public string TeamName => $"{Location} {Name}";
+        public string FullName => $"{LocationName} {NickName}";
 
         public long Id { get; set; }
-        public string Location { get; set; }
-        public string Name { get; set; }
+        public string LocationName { get; set; }
+        public string NickName { get; set; }
         public string TeamAbbreviation { get; set; }
         public string Conference { get; set; }
         public string Division { get; set; }
