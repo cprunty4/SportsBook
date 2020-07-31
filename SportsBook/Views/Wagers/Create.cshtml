@@ -6,8 +6,12 @@
 
 @model CreateWager
 
+<link href="/css/forms.css" rel="stylesheet" />  
+
 @using (Html.BeginForm())
 {
+
+<div class="row">
 
 <div class="panel panel-default">
 
@@ -17,14 +21,26 @@
 
     <div class="panel-body">
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Place Bet" class="btn btn-default" />
+        <div class="fieldsets-group">
+            <div class="fieldset">
+                <label>Wager Amount </label>
+                <input placeholder="11.00" type="text">
             </div>
+            <div class="fieldset">
+                <label>Win Amount </label>
+                <input placeholder="10.00" type="text">
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <input type="button" value="Place Bet" class="btn btn-default" />
         </div>
 
     </div>
 </div>
+
+</div>
+
 }
 
 <script src="~/js/wagers.js"></script>
