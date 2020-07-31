@@ -126,7 +126,7 @@ namespace SportsBook.Repository
                 },
                 new Team
                 {
-                    Id = 9,
+                    Id = 10,
                     LocationName = "Cincinnati",
                     TeamAbbreviation = "CIN",
                     NickName = "Bengals",
@@ -134,7 +134,7 @@ namespace SportsBook.Repository
                     Division = "AFC North",
                     Colors = new List<string> {"Black", "Orange", "White"},
                     LogoImage = "Cincinnati_Bengals_logo.svg.png",
-                    EntityId = 9
+                    EntityId = 10
                 }
 
             };

@@ -1,0 +1,14 @@
+.fieldsets-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fieldset {
+    margin-top: 20px;
+}
+
+.btn-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
