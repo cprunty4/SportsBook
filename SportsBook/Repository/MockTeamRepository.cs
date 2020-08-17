@@ -135,6 +135,18 @@ namespace SportsBook.Repository
                     Colors = new List<string> {"Black", "Orange", "White"},
                     LogoImage = "Cincinnati_Bengals_logo.svg.png",
                     EntityId = 10
+                },
+                new Team
+                {
+                    Id = 11,
+                    LocationName = "San Francisco",
+                    TeamAbbreviation = "SF",
+                    NickName = "49ers",
+                    Conference = "NFC",
+                    Division = "NFC West",
+                    Colors = new List<string> {"Red", "Gold"},
+                    LogoImage = "San_Francisco_49ers_logo.svg.png",
+                    EntityId = 10
                 }
 
             };
