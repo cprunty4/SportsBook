@@ -146,7 +146,7 @@ namespace SportsBook.Repository
                     Division = "NFC West",
                     Colors = new List<string> {"Red", "Gold"},
                     LogoImage = "San_Francisco_49ers_logo.svg.png",
-                    EntityId = 10
+                    EntityId = 11
                 }
 
             };
