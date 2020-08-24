@@ -147,7 +147,19 @@ namespace SportsBook.Repository
                     Colors = new List<string> {"Red", "Gold"},
                     LogoImage = "San_Francisco_49ers_logo.svg.png",
                     EntityId = 11
-                }
+                },
+                new Team
+                {
+                    Id = 12,
+                    LocationName = "Arizona",
+                    TeamAbbreviation = "ARI",
+                    NickName = "Cardinals",
+                    Conference = "NFC",
+                    Division = "NFC West",
+                    Colors = new List<string> {"Cardinal Red", "White", "Black"},
+                    LogoImage = "Arizona_Cardinals_logo.svg.png",
+                    EntityId = 12
+                }                
 
             };
 
