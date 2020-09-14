@@ -27,13 +27,14 @@ namespace SportsBook
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<ITeamRepository, MockTeamRepository>();
+            services.AddScoped<ITeamRepository, TeamRepository>();
             services.AddScoped<IStadiumRepository, MockStadiumRepository>();
             services.AddScoped<IGameRepository, MockGameRepository>();
             services.AddScoped<IGameTeamRepository, MockGameTeamRepository>();
             services.AddScoped<IGameSlateRepository, MockGameSlateRepository>();
             services.AddScoped<ITeamMetaDataRepository, TeamMetaDataRepository>();
-            services.AddScoped<ICommentsRepository, CommentsRepository>();            
+            services.AddScoped<ICommentsRepository, CommentsRepository>();
+
 
         }
 

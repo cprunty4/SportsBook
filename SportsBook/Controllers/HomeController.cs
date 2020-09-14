@@ -34,7 +34,7 @@ namespace SportsBook.Controllers
         public IActionResult Index()
         {
             _logger.LogInformation("entered Home controller");
-            return View(_teamMetaDataRepository.AllTeamsMetaData);
+            return View(_teamRepository.AllTeams);
         }
 
         public IActionResult Privacy()
