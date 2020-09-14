@@ -159,6 +159,18 @@ namespace SportsBook.Repository
                     Colors = new List<string> {"Cardinal Red", "White", "Black"},
                     LogoImage = "Arizona_Cardinals_logo.svg.png",
                     EntityId = 12
+                },
+                new Team
+                {
+                    Id = 13,
+                    LocationName = "New Orleans",
+                    TeamAbbreviation = "NO",
+                    NickName = "Saints",
+                    Conference = "NFC",
+                    Division = "NFC South",
+                    Colors = new List<string> {"Old Gold", "black", "white"},
+                    LogoImage = "Orleans_Saints_logo.svg.png",
+                    EntityId = 13
                 }                
 
             };
