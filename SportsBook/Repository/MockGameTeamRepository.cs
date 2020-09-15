@@ -12,7 +12,7 @@ namespace SportsBook.Repository
                 new GameTeam {
                     Id = 1,
                     TeamId = 1,
-                    Score = null,
+                    Score = 43,
                     SpreadCurrent = 3.5m,
                     SpreadMoneylineCurrent = -110,
                     MoneyLineCurrent = 158
@@ -20,10 +20,26 @@ namespace SportsBook.Repository
                 new GameTeam {
                     Id = 2,
                     TeamId = 4,
+                    Score = 34,
                     SpreadCurrent = -3.5m,
                     SpreadMoneylineCurrent = -110,
                     MoneyLineCurrent = 186
-                }
+                },
+                new GameTeam {
+                    Id = 3,
+                    TeamId = 1,
+                    Score = null,
+                    SpreadCurrent = -5.5m,
+                    SpreadMoneylineCurrent = -110,
+                    MoneyLineCurrent = -270
+                },
+                new GameTeam {
+                    Id = 4,
+                    TeamId = 14,
+                    SpreadCurrent = 5.5m,
+                    SpreadMoneylineCurrent = -110,
+                    MoneyLineCurrent = 220
+                }                
             };
 
         public GameTeam GetById(long gameTeamId)

@@ -19,7 +19,8 @@ namespace SportsBook.Repository
                     Id = 1,
                     Name = "Lambeau Field",
                     State = "WI",
-                    ZipCode = "54304"
+                    ZipCode = "54304",
+                    StadiumImageFileName = "Lambeau_Field_bowl.jpg"
                 },
                 new Stadium
                 {
