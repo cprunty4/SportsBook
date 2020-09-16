@@ -27,7 +27,25 @@ namespace SportsBook.Repository
                 OverUnderCurrent = 46.5m,
                 OverUnderMoneylineCurrent = -110
 
-            }
+            },
+            new Game {
+                Id = 2,
+                LeagueId = 1,
+                GameType = GameTypeEnum.RegularSeason,
+                AwayGameTeamId = 4,
+                HomeGameTeamId = 3,
+                StadiumId = 1,
+                SeasonYear = 2020,
+                WeekNumber = 2,
+                StartDateTime = DateTime.Parse("2020-09-20 12:00"),
+                IsFinal = true,
+                IsStarted = false,
+                Weather = string.Empty,
+                Wind = string.Empty,
+                OverUnderCurrent = 47.5m,
+                OverUnderMoneylineCurrent = -110
+
+            }            
         };
 
         public Game GetGameById(long gameId)

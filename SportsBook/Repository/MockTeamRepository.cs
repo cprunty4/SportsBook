@@ -171,7 +171,19 @@ namespace SportsBook.Repository
                     Colors = new List<string> {"Old Gold", "black", "white"},
                     LogoImage = "Orleans_Saints_logo.svg.png",
                     EntityId = 13
-                }                
+                },
+                new Team
+                {
+                    Id = 14,
+                    LocationName = "Detroit",
+                    TeamAbbreviation = "DET",
+                    NickName = "Lions",
+                    Conference = "NFC",
+                    Division = "NFC Central",
+                    Colors = new List<string> {"Honolulu Blue", "Silver"},
+                    LogoImage = "Detroit_Lions_logo.svg.png",
+                    EntityId = 14
+                }                                 
 
             };
 
