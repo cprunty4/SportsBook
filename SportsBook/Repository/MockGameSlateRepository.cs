@@ -63,6 +63,13 @@ namespace SportsBook.Repository
                 gameSlate.StadiumImageFileName = stadium.StadiumImageFileName;
                 gameSlate.LeagueName = "NFL";
 
+                gameSlate.IsFinal = game.IsFinal;
+                gameSlate.AwayTeamScore = awayGameTeam.Score;
+                gameSlate.HomeTeamScore = homeGameTeam.Score;
+
+                gameSlate.AwayTeamNickname = awayTeam.NickName;
+                gameSlate.HomeTeamNickname = homeTeam.NickName;
+
                 gameSlates.Add(gameSlate);
             }
 

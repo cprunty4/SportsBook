@@ -27,6 +27,11 @@ namespace SportsBook.Models
         public string StadiumImageFileName { get; set; }
 
         public long GameId { get; set; }
+        public bool IsFinal { get; set; }
+        public int? HomeTeamScore { get; set; }                
+        public int? AwayTeamScore { get; set; }    
+        public string HomeTeamNickname { get; set; }
+        public string AwayTeamNickname { get; set; }             
 
     }
 }
