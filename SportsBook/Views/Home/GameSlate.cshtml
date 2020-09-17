@@ -3,7 +3,7 @@
 @model List<GameSlate>
 
     <h4>
-        NFL 2020 Week 1
+        NFL 2020
     </h4>
 
     @foreach (var gameSlate in Model) {
@@ -12,7 +12,29 @@
             <img class='db media-img-item' src='/images/@gameSlate.StadiumImageFileName' width='300'>
         </div>
         <div class='media-content'>
-            <h3 class='media-title'></h3>
+            <p class='media-title'>Week @gameSlate.WeekNumber</p>
+            @if (@gameSlate.IsFinal) {
+                <p class='media-description'>
+                    Final
+                </p>                
+                <ul class='media-meta'>
+                    @if (@gameSlate.HomeTeamScore > @gameSlate.AwayTeamScore) {
+                        <li class='media-meta-item'>
+                            @gameSlate.HomeTeamNickname <b>@gameSlate.HomeTeamScore</b>
+                        </li>
+                        <li class='media-meta-item'>
+                            @gameSlate.AwayTeamNickname @gameSlate.AwayTeamScore
+                        </li>
+                    } else {
+                        <li class='media-meta-item'>
+                            @gameSlate.AwayTeamNickname <b>@gameSlate.AwayTeamScore</b>
+                        </li>                            
+                        <li class='media-meta-item'>
+                            @gameSlate.HomeTeamNickname @gameSlate.HomeTeamScore
+                        </li>
+                    }
+                </ul>
+            } else {
             <p class='media-description'>
                 @gameSlate.GameStartDateTime @gameSlate.StadiumName O/U @gameSlate.OverUnder
             </p>
@@ -26,6 +48,7 @@
                     <span class='media-meta-label'>@gameSlate.HomeTeamFullName </span>
                 </li>
             </ul>
+            }
         </div>
     </div>
 
