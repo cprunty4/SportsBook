@@ -43,7 +43,17 @@ namespace SportsBook.Repository
 
         public Team GetTeamById(long teamId)
         {
-            throw new System.NotImplementedException();
+            Team team = new Team();
+            var client = new HttpClient();
+            Entity entity = new Entity();
+
+            string response = client.GetStringAsync($"{baseUrl}/api/Entities/{teamId}").Result;
+
+            entity = JsonConvert.DeserializeObject<Entity>(response);
+
+            team = EntityMapper.MapEntityToTeam(entity);
+
+            return team;
         }
     }
 }

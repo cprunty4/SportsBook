@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SportsBook.Interfaces;
 using SportsBook.Repository;
+using SportsBook.Services;
 
 namespace SportsBook
 {
@@ -31,9 +32,11 @@ namespace SportsBook
             services.AddScoped<IStadiumRepository, MockStadiumRepository>();
             services.AddScoped<IGameRepository, MockGameRepository>();
             services.AddScoped<IGameTeamRepository, MockGameTeamRepository>();
-            services.AddScoped<IGameSlateRepository, MockGameSlateRepository>();
+            services.AddScoped<IGameSlateRepository, GameSlateRepository>();
             services.AddScoped<ITeamMetaDataRepository, TeamMetaDataRepository>();
             services.AddScoped<ICommentsRepository, CommentsRepository>();
+            
+            services.AddTransient<ITeamMetaDataService, TeamMetaDataService>();
 
 
         }

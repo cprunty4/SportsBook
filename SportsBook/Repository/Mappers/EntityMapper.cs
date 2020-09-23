@@ -14,11 +14,21 @@ namespace SportsBook.Repository.Mappers
             {
                 teams.Add(new Team {
                     FullName = entity.Name,
-                    LogoImage = entity.Description
+                    LogoImage = entity.Description,
+                    EntityId = (int)entity.ID
                 });
             }
 
             return teams;
+        }
+
+        internal static Team MapEntityToTeam(Entity entity)
+        {
+            return new Team {
+                FullName = entity.Name,
+                LogoImage = entity.Description,
+                EntityId = (int)entity.ID
+            };
         }
     }
 }
