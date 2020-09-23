@@ -19,7 +19,8 @@ namespace SportsBook.Repository
                     Id = 1,
                     Name = "Lambeau Field",
                     State = "WI",
-                    ZipCode = "54304"
+                    ZipCode = "54304",
+                    StadiumImageFileName = "Lambeau_Field_bowl.jpg"
                 },
                 new Stadium
                 {
@@ -47,6 +48,16 @@ namespace SportsBook.Repository
                     State = "MN",
                     ZipCode = "55415",
                     StadiumImageFileName = "us-bank-stadium.jpg"
+
+                },
+                new Stadium {
+                    Address = "1500 Sugar Bowl Drive",
+                    City = "New Orleans",
+                    Id = 5,
+                    Name = "Mercedes-Benz Superdome",
+                    State = "LA",
+                    ZipCode = null,
+                    StadiumImageFileName = "Mercedes-Benz_Superdome.jpg"
 
                 }
             };
