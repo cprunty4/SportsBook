@@ -56,7 +56,7 @@ namespace SportsBook.Repository
             return teamsMetaData.Select(x => x).OrderByDescending(x => x.LastCommentUpdatedDate).ToList();
         }
 
-        private int GetNumberOfComments(int? teamEntityId)
+        internal int GetNumberOfComments(int? teamEntityId)
         {
             List<EntityNote> entityNotes = new List<EntityNote>();
             // Call Service here that retrieves data from Entities API
@@ -78,7 +78,7 @@ namespace SportsBook.Repository
             return 0;
         }
 
-        private int GetNumberOfLikes(int? teamEntityId) {
+        internal int GetNumberOfLikes(int? teamEntityId) {
             // Call Service here that retrieves data from Entities API  
             List<EntityStatusHistory> statusHistory = new List<EntityStatusHistory>();
             if (teamEntityId != null) {

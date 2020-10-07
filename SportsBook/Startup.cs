@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SportsBook.Interfaces;
 using SportsBook.Repository;
+using SportsBook.Services;
 
 namespace SportsBook
 {
@@ -27,13 +28,18 @@ namespace SportsBook
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<ITeamRepository, MockTeamRepository>();
-            services.AddScoped<IStadiumRepository, MockStadiumRepository>();
-            services.AddScoped<IGameRepository, MockGameRepository>();
-            services.AddScoped<IGameTeamRepository, MockGameTeamRepository>();
-            services.AddScoped<IGameSlateRepository, MockGameSlateRepository>();
+            services.AddTransient<IStadiumRepository, MockStadiumRepository>();
+            services.AddTransient<IGameRepository, MockGameRepository>();
+            services.AddTransient<IGameTeamRepository, MockGameTeamRepository>();
+
+            services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped<IGameSlateRepository, GameSlateRepository>();
             services.AddScoped<ITeamMetaDataRepository, TeamMetaDataRepository>();
-            services.AddScoped<ICommentsRepository, CommentsRepository>();            
+            services.AddScoped<ICommentsRepository, CommentsRepository>();
+            
+            services.AddSingleton<ITeamMetaDataService, TeamMetaDataService>();
+            services.AddSingleton<IAzureBlobService, AzureBlobService>();            
+
 
         }
 

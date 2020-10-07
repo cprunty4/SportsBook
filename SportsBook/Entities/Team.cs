@@ -7,7 +7,7 @@ namespace SportsBook.Entities
 {
     public class Team
     {
-        public string FullName => $"{LocationName} {NickName}";
+        public string FullName { get; set; }
 
         public long Id { get; set; }
         public string LocationName { get; set; }
@@ -19,6 +19,8 @@ namespace SportsBook.Entities
         public long? HomeStadiumId { get; set; }
         public string HelmetImageFileName { get; set; }
         public string LogoImage { get; set; }
-        public int? EntityId { get; set; }        
+        public int? EntityId { get; set; }
+        public int NumberOfLikes { get; set; }
+        public int NumberOfComments { get; set; }              
     }
 }
