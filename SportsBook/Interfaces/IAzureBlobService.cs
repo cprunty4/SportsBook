@@ -5,6 +5,6 @@ namespace SportsBook.Interfaces
 {
     public interface IAzureBlobService
     {
-        Task<Stream> GetTeamLogoImageBlobStreamAsync(string LogoImageFileName);
+        string GetTeamLogoImageUri(string LogoImageFileName);
     }
 }

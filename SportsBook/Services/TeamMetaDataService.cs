@@ -10,10 +10,13 @@ namespace SportsBook.Services
 
         private readonly ICommentsRepository _commentsRepository;
 
-        public TeamMetaDataService(ITeamRepository teamRepository, ICommentsRepository commentsRepository)
+        private readonly IAzureBlobService _azureBlobService;
+
+        public TeamMetaDataService(ITeamRepository teamRepository, ICommentsRepository commentsRepository, IAzureBlobService azureBlobService)
         {
             _teamRepository = teamRepository;
             _commentsRepository = commentsRepository;
+            _azureBlobService = azureBlobService;
         }      
 
         public List<Team> GetAllTeams()
@@ -23,6 +26,13 @@ namespace SportsBook.Services
             foreach(var team in teams) {
                 List<EntityNote> entityNotes = _commentsRepository.GetComments(team.EntityId);
                 team.NumberOfComments = entityNotes.Count;
+
+                int numberOfLikes = _commentsRepository.GetNumberOfLikes(team.EntityId);
+                team.NumberOfLikes = numberOfLikes;
+
+                // Retrieve the LogoImage from Azure Storage
+                team.LogoImageUri = _azureBlobService.GetTeamLogoImageUri(team.LogoImage);
+
             }
 
             return teams;
