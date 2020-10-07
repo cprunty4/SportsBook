@@ -28,15 +28,17 @@ namespace SportsBook
         {
             services.AddControllersWithViews();
 
+            services.AddTransient<IStadiumRepository, MockStadiumRepository>();
+            services.AddTransient<IGameRepository, MockGameRepository>();
+            services.AddTransient<IGameTeamRepository, MockGameTeamRepository>();
+
             services.AddScoped<ITeamRepository, TeamRepository>();
-            services.AddScoped<IStadiumRepository, MockStadiumRepository>();
-            services.AddScoped<IGameRepository, MockGameRepository>();
-            services.AddScoped<IGameTeamRepository, MockGameTeamRepository>();
             services.AddScoped<IGameSlateRepository, GameSlateRepository>();
             services.AddScoped<ITeamMetaDataRepository, TeamMetaDataRepository>();
             services.AddScoped<ICommentsRepository, CommentsRepository>();
             
-            services.AddTransient<ITeamMetaDataService, TeamMetaDataService>();
+            services.AddSingleton<ITeamMetaDataService, TeamMetaDataService>();
+            services.AddSingleton<IAzureBlobService, AzureBlobService>();            
 
 
         }
