@@ -17,5 +17,6 @@ namespace SportsBook.Models
         public List<string> Comments { get; set; }
         public int EntityId { get; set; }
         public DateTime LastCommentUpdatedDate { get => lastCommentUpdatedDate; set => lastCommentUpdatedDate = value; }
+        public string BlobUrl { get; set; }
     }
 }

@@ -21,6 +21,7 @@ namespace SportsBook.Entities
         public string LogoImage { get; set; }
         public int? EntityId { get; set; }
         public int NumberOfLikes { get; set; }
-        public int NumberOfComments { get; set; }              
+        public int NumberOfComments { get; set; }
+        public string LogoImageUri { get; set; }           
     }
 }

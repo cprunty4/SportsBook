@@ -56,7 +56,7 @@ namespace SportsBook.Repository
                 SeasonYear = 2020,
                 WeekNumber = 3,
                 StartDateTime = DateTime.Parse("2020-09-27 19:20"),
-                IsFinal = false,
+                IsFinal = true,
                 IsStarted = false,
                 Weather = string.Empty,
                 Wind = string.Empty,

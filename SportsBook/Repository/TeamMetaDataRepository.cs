@@ -80,19 +80,19 @@ namespace SportsBook.Repository
 
         internal int GetNumberOfLikes(int? teamEntityId) {
             // Call Service here that retrieves data from Entities API  
-            List<EntityStatusHistory> statusHistory = new List<EntityStatusHistory>();
-            if (teamEntityId != null) {
-                var client = new HttpClient();            
+            // List<EntityStatusHistory> statusHistory = new List<EntityStatusHistory>();
+            // if (teamEntityId != null) {
+            //     var client = new HttpClient();            
 
-                string response = client.GetStringAsync($"{baseUrl}/api/EntityStatusHistory?entityId={teamEntityId}").Result;
+            //     string response = client.GetStringAsync($"{baseUrl}/api/EntityStatusHistory?entityId={teamEntityId}").Result;
 
-                statusHistory = JsonConvert.DeserializeObject<List<EntityStatusHistory>>(response);
+            //     statusHistory = JsonConvert.DeserializeObject<List<EntityStatusHistory>>(response);
 
-                if (statusHistory.Count > 0)         
-                {
-                    return statusHistory.Where(x => x.status == "Like").Count();
-                }
-            }
+            //     if (statusHistory.Count > 0)         
+            //     {
+            //         return statusHistory.Where(x => x.status == "Like").Count();
+            //     }
+            // }
 
             return 0;
         }

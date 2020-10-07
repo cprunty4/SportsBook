@@ -47,7 +47,7 @@ namespace SportsBook.Repository
                     SpreadCurrent = 4.5m,
                     SpreadMoneylineCurrent = -115,
                     MoneyLineCurrent = 158,
-                    Score =null
+                    Score =37
                 },
                 new GameTeam {
                     Id = 6,
@@ -55,7 +55,7 @@ namespace SportsBook.Repository
                     SpreadCurrent = -4.5m,
                     SpreadMoneylineCurrent = -105,
                     MoneyLineCurrent = -188,
-                    Score =null
+                    Score =30
                 }             
             };
 

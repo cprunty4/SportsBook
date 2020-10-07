@@ -11,5 +11,7 @@ namespace SportsBook.Interfaces
          List<EntityNote> GetComments(int? teamEntityId);
 
          CommentsData GetCommentsData(int teamId);
+
+         int GetNumberOfLikes(int? teamEntityId); 
     }
 }

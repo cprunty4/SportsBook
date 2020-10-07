@@ -37,7 +37,7 @@ namespace SportsBook
             services.AddScoped<ITeamMetaDataRepository, TeamMetaDataRepository>();
             services.AddScoped<ICommentsRepository, CommentsRepository>();
             
-            services.AddSingleton<ITeamMetaDataService, TeamMetaDataService>();
+            services.AddTransient<ITeamMetaDataService, TeamMetaDataService>();
             services.AddSingleton<IAzureBlobService, AzureBlobService>();            
 
 
