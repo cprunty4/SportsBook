@@ -45,10 +45,10 @@ namespace SportsBook.Repository
             return entityNotes;
         }
 
-        public CommentsData GetCommentsData(int teamId)
+        public CommentsData GetCommentsData(int teamEntityId)
         {
             CommentsData commentsData = new CommentsData();
-            Team team = _teamRepository.AllTeams.Where(x => x.Id == teamId).First();
+            Team team = _teamRepository.AllTeams.Where(x => x.EntityId == teamEntityId).First();
 
             commentsData.TeamName = team.NickName;
             commentsData.TeamLocation = team.LocationName;

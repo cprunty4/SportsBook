@@ -10,7 +10,7 @@ namespace SportsBook.Interfaces
 
          List<EntityNote> GetComments(int? teamEntityId);
 
-         CommentsData GetCommentsData(int teamId);
+         CommentsData GetCommentsData(int teamEntityId);
 
          int GetNumberOfLikes(int? teamEntityId); 
     }
