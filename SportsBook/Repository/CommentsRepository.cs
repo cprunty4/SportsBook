@@ -38,7 +38,7 @@ namespace SportsBook.Repository
 
             if (entityNotes.Count > 0)
             {
-                return entityNotes;
+                return entityNotes.OrderByDescending(x => x.UpdatedDate).ToList();
             }
 
 
