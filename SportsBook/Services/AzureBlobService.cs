@@ -22,13 +22,9 @@ namespace SportsBook.Services
             _blobContainerName = configuration.GetSection("AzureStorage").GetValue<string>("BlobContainerName");                         
         }
 
-        public string GetTeamLogoImageUri(string LogoImageFileName)
+        public string GetImageUri(string ImageFileName)
         {
-            string absoluteUri = string.Empty;
-            // Call GetBlobFromContainer and return it's absolute uri
-
-            CloudBlockBlob cloudBlockBlob = this.GetBlobInContainer(_blobContainerName, LogoImageFileName);
-
+            CloudBlockBlob cloudBlockBlob = this.GetBlobInContainer(_blobContainerName, ImageFileName);
             return cloudBlockBlob.Uri.AbsoluteUri;
         }
 
