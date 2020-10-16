@@ -25,6 +25,7 @@ namespace SportsBook.Models
         public DateTime? GameStartDateTime { get; set; }
         public string StadiumName { get; set; }
         public string StadiumImageFileName { get; set; }
+        public string StadiumImageBlobUri { get; set; }
 
         public long GameId { get; set; }
         public bool IsFinal { get; set; }

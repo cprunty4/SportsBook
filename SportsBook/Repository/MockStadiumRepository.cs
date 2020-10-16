@@ -59,6 +59,16 @@ namespace SportsBook.Repository
                     ZipCode = null,
                     StadiumImageFileName = "Mercedes-Benz_Superdome.jpg"
 
+                },
+                new Stadium {
+                    Address = "4201 North Dale Mabry Highway",
+                    City = "Tampa",
+                    Id = 6,
+                    Name = "Raymond James Stadium",
+                    State = "FL",
+                    ZipCode = null,
+                    StadiumImageFileName = "Raymond_James_Stadium02.jpg"
+
                 }
             };
 

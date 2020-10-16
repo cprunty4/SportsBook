@@ -31,7 +31,7 @@ namespace SportsBook.Services
                 team.NumberOfLikes = numberOfLikes;
 
                 // Retrieve the LogoImage from Azure Storage
-                team.LogoImageUri = _azureBlobService.GetTeamLogoImageUri(team.LogoImage);
+                team.LogoImageUri = _azureBlobService.GetImageUri(team.LogoImage);
 
             }
 
