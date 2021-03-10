@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using SportsBook.Entities;
 
 namespace SportsBook.Repository.Mappers
@@ -10,7 +11,7 @@ namespace SportsBook.Repository.Mappers
         {
             List<Team> teams = new List<Team>();
 
-            foreach(var entity in entities)
+            foreach(var entity in entities.OrderByDescending(x => x.UpdatedDate))
             {
                 teams.Add(new Team {
                     FullName = entity.Name,

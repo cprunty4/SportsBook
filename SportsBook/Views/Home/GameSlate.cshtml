@@ -2,10 +2,13 @@
 @{ ViewData["Title"] = "NFL Games Slate Page"; }
 @model List<GameSlate>
 
-    <h4>
-        NFL 2020
-    </h4>
+<h4>
+    NFL 2021
+</h4>
 
+<p><b><font color="red">LIVE BETTING</font> Coming Soon...</b></p>
+
+<!--
     @foreach (var gameSlate in Model) {
     <div class='media'>
         <div class='media-img'>
@@ -16,7 +19,7 @@
             @if (@gameSlate.IsFinal) {
                 <p class='media-description'>
                     Final
-                </p>                
+                </p>
                 <ul class='media-meta'>
                     @if (@gameSlate.HomeTeamScore > @gameSlate.AwayTeamScore) {
                         <li class='media-meta-item'>
@@ -28,7 +31,7 @@
                     } else {
                         <li class='media-meta-item'>
                             @gameSlate.AwayTeamNickname <b>@gameSlate.AwayTeamScore</b>
-                        </li>                            
+                        </li>
                         <li class='media-meta-item'>
                             @gameSlate.HomeTeamNickname @gameSlate.HomeTeamScore
                         </li>
@@ -52,6 +55,6 @@
         </div>
     </div>
 
-
-
     }
+
+-->
