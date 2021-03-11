@@ -60,7 +60,7 @@ namespace SportsBook.Repository
                 gameSlate.HomeTeamMoneyline = homeGameTeam.MoneyLineCurrent;
 
                 var stadium = _stadiumRepository.GetStadiumById(game.StadiumId);
-                gameSlate.StadiumName = $"{stadium.Name} {stadium.City}";
+                gameSlate.StadiumName = $"{stadium.Name}";
                 gameSlate.StadiumImageFileName = stadium.StadiumImageFileName;
                 gameSlate.LeagueName = "NFL";
 

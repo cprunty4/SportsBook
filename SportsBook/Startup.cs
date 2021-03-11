@@ -28,7 +28,7 @@ namespace SportsBook
         {
             services.AddControllersWithViews();
 
-            services.AddTransient<IStadiumRepository, MockStadiumRepository>();
+            //services.AddTransient<IStadiumRepository, MockStadiumRepository>();
             services.AddTransient<IGameRepository, MockGameRepository>();
             services.AddTransient<IGameTeamRepository, MockGameTeamRepository>();
             services.AddTransient<IGameSlateRepository, GameSlateRepository>();   
@@ -36,6 +36,7 @@ namespace SportsBook
             services.AddTransient<ITeamMetaDataRepository, TeamMetaDataRepository>();
             services.AddTransient<ICommentsRepository, CommentsRepository>();
             services.AddTransient<ITeamMetaDataService, TeamMetaDataService>();
+            services.AddTransient<IStadiumRepository, StadiumsRepository>();
 
             services.AddSingleton<IAzureBlobService, AzureBlobService>();            
 
