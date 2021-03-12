@@ -29,8 +29,8 @@ namespace SportsBook
             services.AddControllersWithViews();
 
             //services.AddTransient<IStadiumRepository, MockStadiumRepository>();
-            services.AddTransient<IGameRepository, MockGameRepository>();
-            services.AddTransient<IGameTeamRepository, MockGameTeamRepository>();
+            services.AddTransient<IGameRepository, GameRepository>();
+            services.AddTransient<IGameTeamRepository, GameTeamRepository>();
             services.AddTransient<IGameSlateRepository, GameSlateRepository>();   
             services.AddTransient<ITeamRepository, TeamRepository>();
             services.AddTransient<ITeamMetaDataRepository, TeamMetaDataRepository>();
