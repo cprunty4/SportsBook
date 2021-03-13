@@ -10,7 +10,7 @@ namespace SportsBook.Entities
         public long Id { get; set; }
         public string Name { get; set; }
         public int LeagueId { get; set; }
-        public GameTypeEnum GameType { get; set; }
+        public int? GameType { get; set; }
         public long AwayGameTeamId { get; set; }
         public long HomeGameTeamId { get; set; }
         public long StadiumId { get; set; }

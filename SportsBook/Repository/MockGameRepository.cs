@@ -13,7 +13,7 @@ namespace SportsBook.Repository
             new Game {
                 Id = 1,
                 LeagueId = 1,
-                GameType = GameTypeEnum.RegularSeason,
+                GameType = (int)GameTypeEnum.RegularSeason,
                 AwayGameTeamId = 1,
                 HomeGameTeamId = 2,
                 StadiumId = 4,
@@ -31,7 +31,7 @@ namespace SportsBook.Repository
             new Game {
                 Id = 2,
                 LeagueId = 1,
-                GameType = GameTypeEnum.RegularSeason,
+                GameType = (int)GameTypeEnum.RegularSeason,
                 AwayGameTeamId = 4,
                 HomeGameTeamId = 3,
                 StadiumId = 1,
@@ -49,7 +49,7 @@ namespace SportsBook.Repository
             new Game {
                 Id = 3,
                 LeagueId = 1,
-                GameType = GameTypeEnum.RegularSeason,
+                GameType = (int)GameTypeEnum.RegularSeason,
                 AwayGameTeamId = 6,
                 HomeGameTeamId = 5,
                 StadiumId = 5,
@@ -67,7 +67,7 @@ namespace SportsBook.Repository
             new Game {
                 Id = 4,
                 LeagueId = 1,
-                GameType = GameTypeEnum.RegularSeason,
+                GameType = (int)GameTypeEnum.RegularSeason,
                 AwayGameTeamId = 8,
                 HomeGameTeamId = 7,
                 StadiumId = 1,
@@ -85,7 +85,7 @@ namespace SportsBook.Repository
             new Game {
                 Id = 5,
                 LeagueId = 1,
-                GameType = GameTypeEnum.RegularSeason,
+                GameType = (int)GameTypeEnum.RegularSeason,
                 AwayGameTeamId = 9,
                 HomeGameTeamId = 10,
                 StadiumId = 6,
