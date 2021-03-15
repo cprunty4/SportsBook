@@ -43,6 +43,10 @@ namespace SportsBook.Repository
                 var awayGameTeam = _gameTeamRepository.GetById(game.AwayGameTeamId);
                 var homeGameTeam = _gameTeamRepository.GetById(game.HomeGameTeamId);
 
+                gameSlate.AwayGameTeamId = game.AwayGameTeamId;
+                gameSlate.HomeGameTeamId = game.HomeGameTeamId;
+                gameSlate.GameId = game.Id;
+
                 var awayTeam = _teamRepository.GetTeamById(awayGameTeam.TeamId);
                 var homeTeam = _teamRepository.GetTeamById(homeGameTeam.TeamId);
 

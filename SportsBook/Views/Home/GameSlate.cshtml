@@ -40,12 +40,14 @@
             </p>
             <ul class='media-meta'>
                 <li class='media-meta-item'>
-                    <a href="/wagers/create/@gameSlate.GameId">@gameSlate.AwayTeamSpread</a> @gameSlate.AwayTeamMoneyline
+                    <a href="/wagers/create/@gameSlate.AwayGameTeamId?gameId=@gameSlate.GameId">@gameSlate.AwayTeamSpread
+                    </a> @gameSlate.AwayTeamMoneyline
                     <span class='media-meta-label'>@gameSlate.AwayTeamFullName</span>
                 </li>
                 <li class='media-meta-item'>
-                    @gameSlate.HomeTeamSpread @gameSlate.HomeTeamMoneyline
-                    <span class='media-meta-label'>@gameSlate.HomeTeamFullName </span>
+                    <a href="/wagers/create/@gameSlate.HomeGameTeamId?gameId=@gameSlate.GameId">@gameSlate.HomeTeamSpread
+                     </a> @gameSlate.HomeTeamMoneyline
+                     <span class='media-meta-label'>@gameSlate.HomeTeamFullName </span>
                 </li>
             </ul>
             }
