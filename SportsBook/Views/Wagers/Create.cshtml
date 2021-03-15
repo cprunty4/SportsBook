@@ -16,10 +16,19 @@
 <div class="panel panel-default">
 
     <div class="panel-heading">
-        <b>@Model.AwayTeamName at @Model.HomeTeamName</b>
+        <b>@Model.AwayTeamFullName at @Model.HomeTeamFullName</b>
     </div>
 
     <div class="panel-body">
+
+        <div class="fieldsets-group">
+            <div class="fieldset">
+                @Model.WagerGameTeamTeamName @Model.WagerGameTeamSpreadOfBet
+            </div>
+            <div class="fieldset">
+                @Model.WagerGameTeamSpreadMoneylineOfBet
+            </div>
+        </div>
 
         <div class="fieldsets-group">
             <div class="fieldset">

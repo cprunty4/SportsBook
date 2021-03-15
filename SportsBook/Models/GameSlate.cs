@@ -32,7 +32,10 @@ namespace SportsBook.Models
         public int? HomeTeamScore { get; set; }                
         public int? AwayTeamScore { get; set; }    
         public string HomeTeamNickname { get; set; }
-        public string AwayTeamNickname { get; set; }             
+        public string AwayTeamNickname { get; set; }
+
+        public long? AwayGameTeamId { get; set; }
+        public long? HomeGameTeamId { get; set; }
 
     }
 }
