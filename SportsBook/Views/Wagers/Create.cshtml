@@ -25,6 +25,7 @@
             <div class="fieldset">
                 @Model.WagerGameTeamTeamName @Model.WagerGameTeamSpreadOfBet
             </div>
+            <input type="hidden" id="Moneyline" value=@Model.WagerGameTeamSpreadMoneylineOfBet />
             <div class="fieldset">
                 @Model.WagerGameTeamSpreadMoneylineOfBet
             </div>
@@ -33,11 +34,11 @@
         <div class="fieldsets-group">
             <div class="fieldset">
                 <label>Wager Amount </label>
-                <input placeholder="11.00" type="text">
+                <input placeholder="11.00" type="text" id="WagerAmount">
             </div>
             <div class="fieldset">
                 <label>Win Amount </label>
-                <input placeholder="10.00" type="text">
+                <input placeholder="10.00" type="text" id="WinAmount">
             </div>
         </div>
 

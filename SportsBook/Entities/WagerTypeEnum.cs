@@ -2,9 +2,9 @@ namespace SportsBook.Entities
 {
     public enum WagerTypeEnum
     {
-        Spread=0,
-        OverUnder=1,
-        MoneyLine=2,
+        Spread=1,
+        OverUnder=2,
+        MoneyLine=3,
 
     }
 }
