@@ -29,22 +29,19 @@ namespace SportsBook.Controllers
 
         // GET: create/5
         [HttpGet("wagers/create/{gameTeamId}")]
-        public IActionResult Create([FromRoute] long gameTeamId, [FromQuery] long gameId) {
+        public IActionResult Create([FromRoute] long gameTeamId, [FromQuery] long gameId, [FromQuery] int? wagerType) {
 
             GameTeam gameTeam = _gameTeamRepository.GetById(gameTeamId);
             Team team = _teamRepository.GetTeamById(gameTeam.TeamId);
-
-            // TODO create call GetGameSlateById()
-            GameSlate gameSlate = _gameSlateRepository.AllGameSlates.Where(x => x.GameId == gameId).SingleOrDefault();
+            GameSlate gameSlate = _gameSlateRepository.GetByGameId(gameId);
 
             CreateWager createWager = new CreateWager {
                 AwayTeamFullName = gameSlate.AwayTeamFullName,
                 HomeTeamFullName = gameSlate.HomeTeamFullName,
-                WagerAmount = 11.00m,
-                WagerAmountToWin = 10.00m,
-                WagerGameTeamSpreadMoneylineOfBet = gameTeam.SpreadMoneylineCurrent,
+                WagerGameTeamSpreadMoneylineOfBet = $"{(gameTeam.SpreadMoneylineCurrent > 0 ? "+" : string.Empty)}{gameTeam.SpreadMoneylineCurrent}",
                 WagerGameTeamTeamName = team.FullName,
-                WagerGameTeamSpreadOfBet = gameTeam.SpreadCurrent
+                WagerGameTeamSpreadOfBet = $"{(gameTeam.SpreadCurrent > 0 ? "+" : string.Empty)}{gameTeam.SpreadCurrent}",
+                WagerType = wagerType
             };
 
             return View(createWager);

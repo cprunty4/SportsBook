@@ -28,6 +28,11 @@ namespace SportsBook.Repository
 
         public List<GameSlate> AllGameSlates => this.FetchAllGameSlates();
 
+        public GameSlate GetByGameId(long gameId)
+        {
+            return this.AllGameSlates.Where(x => x.GameId == gameId).SingleOrDefault();
+        }
+
         private List<GameSlate> FetchAllGameSlates()
         {
             var gameSlates = new List<GameSlate>();
@@ -62,6 +67,8 @@ namespace SportsBook.Repository
                 gameSlate.OverUnder = game.OverUnderCurrent;
                 gameSlate.AwayTeamMoneyline = awayGameTeam.MoneyLineCurrent;
                 gameSlate.HomeTeamMoneyline = homeGameTeam.MoneyLineCurrent;
+                gameSlate.AwayTeamSpreadMoneyline = awayGameTeam.SpreadMoneylineCurrent;
+                gameSlate.HomeTeamSpreadMoneyline = homeGameTeam.SpreadMoneylineCurrent;
 
                 var stadium = _stadiumRepository.GetStadiumById(game.StadiumId);
                 gameSlate.StadiumName = $"{stadium.Name}";
