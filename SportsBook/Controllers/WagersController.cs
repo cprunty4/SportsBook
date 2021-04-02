@@ -41,11 +41,19 @@ namespace SportsBook.Controllers
                 WagerGameTeamSpreadMoneylineOfBet = $"{(gameTeam.SpreadMoneylineCurrent > 0 ? "+" : string.Empty)}{gameTeam.SpreadMoneylineCurrent}",
                 WagerGameTeamTeamName = team.FullName,
                 WagerGameTeamSpreadOfBet = $"{(gameTeam.SpreadCurrent > 0 ? "+" : string.Empty)}{gameTeam.SpreadCurrent}",
-                WagerType = wagerType
+                WagerType = wagerType,
+                GameTeamId = gameTeamId
             };
 
             return View(createWager);
         }
-        
+
+        [HttpPost]
+        public IActionResult Create([Bind("GameTeamId,WagerGameTeamSpreadMoneylineOfBet,WagerGameTeamSpreadOfBet,WagerType,WagerAmount,WinAmount,PayoutAmount,UpdatedBy,WagerGameTeamTeamName")] CreateWager createWager)
+        {
+            _logger.LogInformation("entered post create wager");
+            return View("Confirm", createWager);
+        }
+
     }
 }
