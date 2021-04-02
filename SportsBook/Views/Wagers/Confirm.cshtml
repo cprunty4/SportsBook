@@ -1,0 +1,37 @@
+﻿@using SportsBook.Models
+
+@{
+    ViewData["Title"] = "Confirm";
+}
+
+@model CreateWager
+
+
+<div>
+    <p>Thank you.  Your bet has been placed with us.  Good luck!</p>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Team
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WagerGameTeamTeamName)
+        </dd>
+        <dt>
+            Spread
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WagerGameTeamSpreadOfBet)
+        </dd>
+        <dt>
+            Payout
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PayoutAmount)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Home" asp-action="GameSlate">Continue Betting</a>
+</div>
+

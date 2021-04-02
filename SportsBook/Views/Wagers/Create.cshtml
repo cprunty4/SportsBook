@@ -8,49 +8,50 @@
 
 <link href="/css/forms.css" rel="stylesheet" />  
 
-@using (Html.BeginForm())
-{
+<form asp-action="Create">
+    <div class="row">
 
-<div class="row">
+        <div class="panel panel-default">
 
-<div class="panel panel-default">
+            <div class="panel-heading">
+                <b>@Model.AwayTeamFullName at @Model.HomeTeamFullName</b>
+            </div>
 
-    <div class="panel-heading">
-        <b>@Model.AwayTeamFullName at @Model.HomeTeamFullName</b>
+            <div class="panel-body">
+
+                <div class="fieldsets-group">
+                    <div class="fieldset">
+                        @Model.WagerGameTeamTeamName @Model.WagerGameTeamSpreadOfBet
+                    </div>
+                    <div class="fieldset">
+                        @Model.WagerGameTeamSpreadMoneylineOfBet
+                    </div>
+                </div>
+
+                <div class="fieldsets-group">
+                    <div class="fieldset">
+                        <label>Wager Amount </label>
+                        <input placeholder="11.00" type="text" id="WagerAmount" asp-for="WagerAmount">
+                    </div>
+                    <div class="fieldset">
+                        <label>Win Amount </label>
+                        <input placeholder="10.00" type="text" id="WinAmount" asp-for="WinAmount">
+                    </div>
+                </div>
+
+                <div class="btn-row">
+                    <input type="submit" value="Place Bet" class="btn btn-default" />
+                </div>
+                <input type="hidden" id="Moneyline" value=@Model.WagerGameTeamSpreadMoneylineOfBet asp-for="WagerGameTeamSpreadMoneylineOfBet" />
+                <input type="hidden" id="WagerGameTeamSpreadOfBet" value=@Model.WagerGameTeamSpreadOfBet asp-for="WagerGameTeamSpreadOfBet" />
+                <input type="hidden" id="WagerType" value=@Model.WagerType asp-for="WagerType" />
+                <input type="hidden" id="GameTeamId" value=@Model.GameTeamId asp-for="GameTeamId" />
+                <input type="hidden" id="PayoutAmount" value=@Model.PayoutAmount asp-for="PayoutAmount" />
+                <input type="hidden" id="WagerGameTeamTeamName" value=@Model.WagerGameTeamTeamName asp-for="WagerGameTeamTeamName" />
+                <input type="hidden" id="GameId" value=@Model.GameId asp-for="GameId" />
+            </div>
+        </div>
     </div>
-
-    <div class="panel-body">
-
-        <div class="fieldsets-group">
-            <div class="fieldset">
-                @Model.WagerGameTeamTeamName @Model.WagerGameTeamSpreadOfBet
-            </div>
-            <input type="hidden" id="Moneyline" value=@Model.WagerGameTeamSpreadMoneylineOfBet />
-            <div class="fieldset">
-                @Model.WagerGameTeamSpreadMoneylineOfBet
-            </div>
-        </div>
-
-        <div class="fieldsets-group">
-            <div class="fieldset">
-                <label>Wager Amount </label>
-                <input placeholder="11.00" type="text" id="WagerAmount">
-            </div>
-            <div class="fieldset">
-                <label>Win Amount </label>
-                <input placeholder="10.00" type="text" id="WinAmount">
-            </div>
-        </div>
-
-        <div class="btn-row">
-            <input type="button" value="Place Bet" class="btn btn-default" />
-        </div>
-
-    </div>
-</div>
-
-</div>
-
-}
+</form>
 
 <script src="~/js/wagers.js"></script>
