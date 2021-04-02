@@ -13,6 +13,7 @@ namespace SportsBook.Models
         public int? WagerType { get; set; }
         public long? GameTeamId { get; set; }
         public string UpdatedBy { get; set; }
+        public long GameId { get; set; }
 
     }
 }

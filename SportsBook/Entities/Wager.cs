@@ -9,11 +9,12 @@ namespace SportsBook.Entities
         public decimal? WagerAmount { get; set; }        
         public decimal? WinAmount { get; set; }
         public decimal? PayoutAmount { get; set; }
-        public decimal? SpreadOfBet { get; set; }
-        public int? SpreadMoneylineOfBet { get; set; }
-        public int? MoneyLineOfBet { get; set; }
-        public double? OverUnderOfBet { get; set; }
-        public int? OverUnderMoneylineOfBet { get; set; }
+        public string TeamName { get; set; }
+        public string SpreadOfBet { get; set; }
+        public string SpreadMoneylineOfBet { get; set; }
+        public string MoneyLineOfBet { get; set; }
+        public string OverUnderOfBet { get; set; }
+        public string OverUnderMoneylineOfBet { get; set; }
         public string UpdatedBy { get; set; }
     }
 }
