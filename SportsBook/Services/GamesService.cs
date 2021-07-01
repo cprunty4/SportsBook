@@ -13,10 +13,11 @@ namespace SportsBook.Services
 
         IGameSlateRepository _gameSlateRepository;
         public GamesService(IConfiguration configuration,
-        IGameSlateRepository gameSlateRepository) {
+        IGameSlateRepository gameSlateRepository)
+        {
             _configuration = configuration;
-            baseUrl = _configuration.GetSection("EntitiesApiOptions").GetValue<string>("BaseUrl");             
-            _gameSlateRepository = gameSlateRepository;            
+            baseUrl = _configuration.GetSection("EntitiesApiOptions").GetValue<string>("BaseUrl");
+            _gameSlateRepository = gameSlateRepository;
         }
         public GamesSearchResponse GetGamesSearch(GamesSearchRequest request)
         {
@@ -39,7 +40,7 @@ namespace SportsBook.Services
                 HasMoreResults = gameSlates.Count > pagingOptions.Page * pagingOptions.PageSize
             };
 
-            gamesSearchResponse.GameSlates = pagedGameSlates;                
+            gamesSearchResponse.GameSlates = pagedGameSlates;
 
             return gamesSearchResponse;
         }
