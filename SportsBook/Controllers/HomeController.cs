@@ -15,16 +15,16 @@ namespace SportsBook.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IGameSlateRepository _gameSlateRepository;
+        private readonly IGamesService _gamesService;
 
         private readonly ITeamMetaDataService _teamMetaDataService;
 
         public HomeController(ILogger<HomeController> logger,
             ITeamMetaDataService teamMetaDataService,
-            IGameSlateRepository gameSlateRepository)
+            IGamesService gamesService)
         {
             _logger = logger;
-            _gameSlateRepository = gameSlateRepository;
+            _gamesService = gamesService;
             _teamMetaDataService = teamMetaDataService;
         }
 
@@ -43,7 +43,14 @@ namespace SportsBook.Controllers
         public IActionResult GameSlate()
         {
             _logger.LogInformation("entered GameSlate action");
-            return View(_gameSlateRepository.AllGameSlates);
+            GamesSearchRequest request = new GamesSearchRequest{
+                pagingOptions = new PagingOptionsModel {
+                    Page=1,
+                    PageSize=10
+                }
+            };
+            GamesSearchResponse response = _gamesService.GetGamesSearch(request);
+            return View(response.GameSlates);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

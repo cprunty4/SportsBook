@@ -2,9 +2,28 @@
 @{ ViewData["Title"] = "NFL Games Slate Page"; }
 @model List<GameSlate>
 
+
+<link href="/css/games.css" rel="stylesheet" />
+
     <h4>
         NFL 2021
     </h4>
+
+    <div class='fieldsets-group'>   
+        <div class='fieldset'>
+            <label>Start Date</label>
+            <input type='text'>
+        </div>
+        <div class='fieldset'>
+            <label>End Date</label>
+            <input type='text'>
+        </div>
+        <div class='fieldset'>
+            <label>Team Name</label>
+            <input type='text'>
+        </div>
+        <button class='btn'>Search</button>               
+    </div>
 
     @foreach (var gameSlate in Model) {
     <div class='media'>
