@@ -2,3 +2,9 @@
     display: flex;
     justify-content: space-around;
 }
+
+@media screen and (max-width: 768px) {
+    .fieldsets-group {
+        flex-direction: column;
+    }
+}
