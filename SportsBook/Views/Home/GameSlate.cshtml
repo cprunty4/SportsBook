@@ -12,17 +12,17 @@
     <div class='fieldsets-group'>   
         <div class='fieldset'>
             <label>Start Date</label>
-            <input type='text'>
+            <input type='date' id='startDate'>
         </div>
         <div class='fieldset'>
             <label>End Date</label>
-            <input type='text'>
+            <input type='date' id='endDate'>
         </div>
         <div class='fieldset'>
             <label>Team Name</label>
-            <input type='text'>
+            <input type='text' id='teamName'>
         </div>
-        <button class='btn'>Search</button>               
+        <button class='btn btn-primary'>Search</button>               
     </div>
 
     @foreach (var gameSlate in Model) {
@@ -76,3 +76,6 @@
 
 
     }
+
+    <script src="~/js/games.js"></script>
+    <script src="~/lib/moment.js"></script>    
