@@ -23,6 +23,19 @@ namespace SportsBook.Controllers
             GamesSearchResponse response = _gamesService.GetGamesSearch(request);
             _logger.LogInformation("entered gamesController");
             return View(response.GameSlates);
-        }        
+        }  
+
+        [HttpPost]
+        public IActionResult Search()      
+        {
+            string strStartDate = Request.Form["startDate"];
+            string strEndDate = Request.Form["endDate"];
+            string teamName = Request.Form["teamName"];
+
+            GamesSearchRequest request = new GamesSearchRequest();
+            GamesSearchResponse response = _gamesService.GetGamesSearch(request);
+
+            return View(response.GameSlates);
+        }
     }
 }

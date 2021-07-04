@@ -58,5 +58,24 @@ namespace SportsBook.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public IActionResult Search()      
+        {
+            string strStartDate = Request.Form["startDate"];
+            string strEndDate = Request.Form["endDate"];
+            string teamName = Request.Form["teamName"];
+
+            GamesSearchRequest request = new GamesSearchRequest{
+                pagingOptions = new PagingOptionsModel {
+                    Page=1,
+                    PageSize=10
+                }
+            };
+            GamesSearchResponse response = _gamesService.GetGamesSearch(request);
+
+            return View("GameSlate",response.GameSlates);
+        }
+        
     }
 }
