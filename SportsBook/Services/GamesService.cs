@@ -24,6 +24,52 @@ namespace SportsBook.Services
             GamesSearchResponse gamesSearchResponse = new GamesSearchResponse();
             List<GameSlate> gameSlates = _gameSlateRepository.AllGameSlates;
 
+            // Implement filtering here
+            if (!string.IsNullOrEmpty(request.teamName))
+            {
+                List<GameSlate> filteredGameSlates = new List<GameSlate>();
+
+                if (gameSlates.Any(x => x.HomeTeamFullName != null
+                && x.HomeTeamFullName.ToUpper().Contains(request.teamName.ToUpper())))
+                {
+                    filteredGameSlates.AddRange(gameSlates.Where(x => x.HomeTeamFullName != null
+                    && x.HomeTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList());
+                }
+                if (gameSlates.Any(x => x.AwayTeamFullName != null
+                && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())))
+                {   
+                    //TODO check for dupes
+                    filteredGameSlates.AddRange(gameSlates.Where(x => x.AwayTeamFullName != null
+                    && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList());
+
+                }
+                // check for Start/End date filtering
+                if (request.startDate != System.DateTime.MinValue)
+                {
+                    if (filteredGameSlates.Count == 0)
+                        filteredGameSlates = gameSlates;
+
+                    filteredGameSlates = filteredGameSlates.Where(x => x.GameStartDateTime != null
+                    && x.GameStartDateTime >= request.startDate).ToList();
+
+                }
+                if (request.endDate != System.DateTime.MinValue)
+                {
+                    if (filteredGameSlates.Count == 0)
+                        filteredGameSlates = gameSlates;
+
+                    filteredGameSlates = filteredGameSlates.Where(x => x.GameStartDateTime != null
+                    && x.GameStartDateTime <= request.endDate).ToList();
+
+                }
+
+
+                if (filteredGameSlates.Count > 0)
+                    gameSlates = filteredGameSlates;
+            }
+
+            
+
             PagingOptionsModel pagingOptions = new PagingOptionsModel();
             if (request.pagingOptions != null)
                 pagingOptions = request.pagingOptions;

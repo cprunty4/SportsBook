@@ -66,10 +66,27 @@ namespace SportsBook.Controllers
             string strEndDate = Request.Form["endDate"];
             string teamName = Request.Form["teamName"];
 
-            GamesSearchRequest request = new GamesSearchRequest{
-                pagingOptions = new PagingOptionsModel {
-                    Page=1,
-                    PageSize=10
+            DateTime startDate;
+            DateTime endDate;
+            DateTime.TryParse(strStartDate, out startDate);
+            DateTime.TryParse(strEndDate, out endDate);
+
+            if (DateTime.Compare(startDate, endDate) > 0)
+            {
+                string errorMsg = "Invalid request - endDate is before startDate";
+                _logger.LogWarning(errorMsg);
+                return this.BadRequest(errorMsg);
+            }
+
+            GamesSearchRequest request = new GamesSearchRequest
+            {
+                startDate = startDate,
+                endDate = endDate,
+                teamName = teamName,
+                pagingOptions = new PagingOptionsModel
+                {
+                    Page = 1,
+                    PageSize = 10
                 }
             };
             GamesSearchResponse response = _gamesService.GetGamesSearch(request);
