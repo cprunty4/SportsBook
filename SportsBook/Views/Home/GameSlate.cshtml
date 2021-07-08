@@ -8,21 +8,21 @@
     <h4>
         NFL 2021
     </h4>
-
+<form asp-action="Search" asp-controller="Home">
     <div class='fieldsets-group'>   
         <div class='fieldset'>
             <label>Start Date</label>
-            <input type='date' id='startDate'>
+            <input type='date' id='startDate' name='startDate'>
         </div>
         <div class='fieldset'>
             <label>End Date</label>
-            <input type='date' id='endDate'>
+            <input type='date' id='endDate' name='endDate'>
         </div>
         <div class='fieldset'>
             <label>Team Name</label>
-            <input type='text' id='teamName'>
+            <input type='text' id='teamName' name='teamName'>
         </div>
-        <button class='btn btn-primary'>Search</button>               
+        <button type='submit' class='btn btn-primary'>Search</button>               
     </div>
 
     @foreach (var gameSlate in Model) {
@@ -73,9 +73,7 @@
         </div>
     </div>
 
-
-
     }
-
+</form>
     <script src="~/js/games.js"></script>
     <script src="~/lib/moment.js"></script>    

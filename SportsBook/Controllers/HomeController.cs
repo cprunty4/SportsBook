@@ -58,5 +58,41 @@ namespace SportsBook.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public IActionResult Search()      
+        {
+            string strStartDate = Request.Form["startDate"];
+            string strEndDate = Request.Form["endDate"];
+            string teamName = Request.Form["teamName"];
+
+            DateTime startDate;
+            DateTime endDate;
+            DateTime.TryParse(strStartDate, out startDate);
+            DateTime.TryParse(strEndDate, out endDate);
+
+            if (DateTime.Compare(startDate, endDate) > 0)
+            {
+                string errorMsg = "Invalid request - endDate is before startDate";
+                _logger.LogWarning(errorMsg);
+                return this.BadRequest(errorMsg);
+            }
+
+            GamesSearchRequest request = new GamesSearchRequest
+            {
+                startDate = startDate,
+                endDate = endDate,
+                teamName = teamName,
+                pagingOptions = new PagingOptionsModel
+                {
+                    Page = 1,
+                    PageSize = 10
+                }
+            };
+            GamesSearchResponse response = _gamesService.GetGamesSearch(request);
+
+            return View("GameSlate",response.GameSlates);
+        }
+        
     }
 }
