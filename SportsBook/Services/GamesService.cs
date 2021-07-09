@@ -46,6 +46,12 @@ namespace SportsBook.Services
                         && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList();
 
                 }
+
+                if (filteredGameSlates.Count == 0)
+                {
+                    gameSlates = new List<GameSlate>();
+                }
+
             }
 
             // check for Start/End date filtering
