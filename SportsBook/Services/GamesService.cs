@@ -52,11 +52,18 @@ namespace SportsBook.Services
             if (request.startDate != System.DateTime.MinValue
                 && request.endDate != System.DateTime.MinValue)
             {
-                filteredGameSlates = filteredGameSlates.Where(x => 
-                x.GameStartDateTime != null
-                && x.GameStartDateTime >= request.startDate
-                && x.GameStartDateTime <= request.endDate
-                ).ToList();
+                if (filteredGameSlates.Count > 0)                   
+                    filteredGameSlates = filteredGameSlates.Where(x => 
+                    x.GameStartDateTime != null
+                    && x.GameStartDateTime >= request.startDate
+                    && x.GameStartDateTime <= request.endDate
+                    ).ToList();
+                else
+                    filteredGameSlates = gameSlates.Where(x => 
+                    x.GameStartDateTime != null
+                    && x.GameStartDateTime >= request.startDate
+                    && x.GameStartDateTime <= request.endDate
+                    ).ToList();                    
 
             }
 
