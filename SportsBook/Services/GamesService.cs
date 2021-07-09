@@ -24,7 +24,7 @@ namespace SportsBook.Services
             GamesSearchResponse gamesSearchResponse = new GamesSearchResponse();
             List<GameSlate> gameSlates = _gameSlateRepository.AllGameSlates;
             List<GameSlate> filteredGameSlates = new List<GameSlate>();
-            filteredGameSlates = gameSlates;
+
             // Implement teamName filtering
             if (!string.IsNullOrEmpty(request.teamName))
             {
@@ -37,9 +37,13 @@ namespace SportsBook.Services
                 
                 if (gameSlates.Any(x => x.AwayTeamFullName != null
                 && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())))
-                {   
-                    filteredGameSlates.AddRange(gameSlates.Where(x => x.AwayTeamFullName != null
-                    && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList());
+                {
+                    if (filteredGameSlates.Count > 0)   
+                        filteredGameSlates.AddRange(gameSlates.Where(x => x.AwayTeamFullName != null
+                        && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList());
+                    else
+                        filteredGameSlates = gameSlates.Where(x => x.AwayTeamFullName != null
+                        && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList();
 
                 }
             }
@@ -56,20 +60,26 @@ namespace SportsBook.Services
 
             }
 
+            if (filteredGameSlates.Count > 0)
+                gameSlates = filteredGameSlates;
+
+            // Order by Game date/time
+            gameSlates = gameSlates.OrderBy(x => x.GameStartDateTime).ToList();
+
             PagingOptionsModel pagingOptions = new PagingOptionsModel();
             if (request.pagingOptions != null)
                 pagingOptions = request.pagingOptions;
 
             // Implement paging
-            var pagedGameSlates = filteredGameSlates.Skip(pagingOptions.PageSize * (pagingOptions.Page - 1))
+            var pagedGameSlates = gameSlates.Skip(pagingOptions.PageSize * (pagingOptions.Page - 1))
                                         .Take(pagingOptions.PageSize).ToList();
 
             // add paging response
             gamesSearchResponse.pagedResult = new PagedResultModel
             {
-                TotalResultCount = filteredGameSlates.Count,
+                TotalResultCount = gameSlates.Count,
                 PagingOptions = pagingOptions,
-                HasMoreResults = filteredGameSlates.Count > pagingOptions.Page * pagingOptions.PageSize
+                HasMoreResults = gameSlates.Count > pagingOptions.Page * pagingOptions.PageSize
             };
 
             gamesSearchResponse.GameSlates = pagedGameSlates;
