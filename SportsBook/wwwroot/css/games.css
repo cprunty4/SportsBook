@@ -3,6 +3,12 @@
     justify-content: space-around;
 }
 
+.not-found-msg {
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
     .fieldsets-group {
         flex-direction: column;

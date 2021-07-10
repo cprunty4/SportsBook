@@ -69,7 +69,12 @@ namespace SportsBook.Services
                     x.GameStartDateTime != null
                     && x.GameStartDateTime >= request.startDate
                     && x.GameStartDateTime <= request.endDate
-                    ).ToList();                    
+                    ).ToList();  
+
+                if (filteredGameSlates.Count == 0)
+                {
+                    gameSlates = new List<GameSlate>();
+                }                                      
 
             }
 

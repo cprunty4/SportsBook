@@ -1,15 +1,16 @@
 ﻿@using SportsBook.Models
-@{ ViewData["Title"] = "NFL Games Slate Page"; }
+@{
+    ViewData["Title"] = "NFL Games Slate Page"; }
 @model List<GameSlate>
 
 
 <link href="/css/games.css" rel="stylesheet" />
 
-    <h4>
-        NFL 2021
-    </h4>
+<h4>
+    NFL 2021
+</h4>
 <form asp-action="Search" asp-controller="Home">
-    <div class='fieldsets-group'>   
+    <div class='fieldsets-group'>
         <div class='fieldset'>
             <label>Start Date</label>
             <input type='date' id='startDate' name='startDate'>
@@ -22,58 +23,74 @@
             <label>Team Name</label>
             <input type='text' id='teamName' name='teamName'>
         </div>
-        <button type='submit' class='btn btn-primary'>Search</button>               
+        <button type='submit' class='btn btn-primary'>Search</button>
     </div>
 
-    @foreach (var gameSlate in Model) {
-    <div class='media'>
-        <div class='media-img'>
-            <img class='db media-img-item' src='@gameSlate.StadiumImageBlobUri' width='300'>
-        </div>
-        <div class='media-content'>
-            <p class='media-title'>Week @gameSlate.WeekNumber</p>
-            @if (@gameSlate.IsFinal) {
-                <p class='media-description'>
-                    Final
-                </p>                
-                <ul class='media-meta'>
-                    @if (@gameSlate.HomeTeamScore > @gameSlate.AwayTeamScore) {
-                        <li class='media-meta-item'>
-                            @gameSlate.HomeTeamNickname <b>@gameSlate.HomeTeamScore</b>
-                        </li>
-                        <li class='media-meta-item'>
-                            @gameSlate.AwayTeamNickname @gameSlate.AwayTeamScore
-                        </li>
-                    } else {
-                        <li class='media-meta-item'>
-                            @gameSlate.AwayTeamNickname <b>@gameSlate.AwayTeamScore</b>
-                        </li>                            
-                        <li class='media-meta-item'>
-                            @gameSlate.HomeTeamNickname @gameSlate.HomeTeamScore
-                        </li>
+    @if (Model.Count == 0)
+    {
+            <div class='not-found-msg'>
+                <p><b>Game(s) not found</b></p>
+            </div>
+    }
+    else
+    {
+        @foreach (var gameSlate in Model)
+        {
+            <div class='media'>
+                <div class='media-img'>
+                    <img class='db media-img-item' src='@gameSlate.StadiumImageBlobUri' width='300'>
+                </div>
+                <div class='media-content'>
+                    <p class='media-title'>Week @gameSlate.WeekNumber</p>
+                    @if (@gameSlate.IsFinal)
+                    {
+                        <p class='media-description'>
+                            Final
+                        </p>
+                        <ul class='media-meta'>
+                            @if (@gameSlate.HomeTeamScore > @gameSlate.AwayTeamScore)
+                            {
+                                <li class='media-meta-item'>
+                                    @gameSlate.HomeTeamNickname <b>@gameSlate.HomeTeamScore</b>
+                                </li>
+                                <li class='media-meta-item'>
+                                    @gameSlate.AwayTeamNickname @gameSlate.AwayTeamScore
+                                </li>
+                            }
+                            else
+                            {
+                                <li class='media-meta-item'>
+                                    @gameSlate.AwayTeamNickname <b>@gameSlate.AwayTeamScore</b>
+                                </li>
+                                <li class='media-meta-item'>
+                                    @gameSlate.HomeTeamNickname @gameSlate.HomeTeamScore
+                                </li>
+                            }
+                        </ul>
                     }
-                </ul>
-            } else {
-            <p class='media-description'>
-                @gameSlate.GameStartDateTime @gameSlate.StadiumName O/U @gameSlate.OverUnder
-            </p>
-            <ul class='media-meta'>
-                <li class='media-meta-item'>
-                    <a href="/wagers/create/@gameSlate.AwayGameTeamId?gameId=@gameSlate.GameId&wagerType=1">@gameSlate.AwayTeamSpread
-                    </a> @gameSlate.AwayTeamSpreadMoneyline
-                    <span class='media-meta-label'>@gameSlate.AwayTeamFullName</span>
-                </li>
-                <li class='media-meta-item'>
-                    <a href="/wagers/create/@gameSlate.HomeGameTeamId?gameId=@gameSlate.GameId&wagerType=1">@gameSlate.HomeTeamSpread
-                     </a> @gameSlate.HomeTeamSpreadMoneyline
-                     <span class='media-meta-label'>@gameSlate.HomeTeamFullName </span>
-                </li>
-            </ul>
-            }
-        </div>
-    </div>
+                    else
+                    {
+                        <p class='media-description'>
+                            @gameSlate.GameStartDateTime @gameSlate.StadiumName O/U @gameSlate.OverUnder
+                        </p>
+                        <ul class='media-meta'>
+                            <li class='media-meta-item'>
+                                <a href="/wagers/create/@gameSlate.AwayGameTeamId?gameId=@gameSlate.GameId&wagerType=1">@gameSlate.AwayTeamSpread
+                                </a> @gameSlate.AwayTeamSpreadMoneyline
+                                <span class='media-meta-label'>@gameSlate.AwayTeamFullName</span>
+                            </li>
+                            <li class='media-meta-item'>
+                                <a href="/wagers/create/@gameSlate.HomeGameTeamId?gameId=@gameSlate.GameId&wagerType=1">@gameSlate.HomeTeamSpread
+                                </a> @gameSlate.HomeTeamSpreadMoneyline
+                                <span class='media-meta-label'>@gameSlate.HomeTeamFullName </span>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            </div>
 
+        }
     }
 </form>
-    <script src="~/js/games.js"></script>
-    <script src="~/lib/moment.js"></script>    
+<script src="~/js/games.js"></script>
+<script src="~/lib/moment.js"></script>
