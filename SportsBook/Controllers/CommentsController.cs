@@ -14,7 +14,7 @@ namespace SportsBook.Controllers
 
         public CommentsController(ILogger<CommentsController> logger,
             ICommentsRepository commentsRepository,
-            IAzureBlobService azureBlobService,
+            IAzureBlobService azureBlobService
         )
         {
             _logger = logger;
