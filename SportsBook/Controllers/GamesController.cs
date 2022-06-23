@@ -20,10 +20,24 @@ namespace SportsBook.Controllers
         }
         public IActionResult GamesSearch()
         {
-            GamesSearchRequest request = new GamesSearchRequest();
-            GamesSearchResponse response = _gamesService.GetGamesSearch(request);
             _logger.LogInformation("entered gamesController");
-            return View(response.GameSlates);
+
+            DateTime startDate = DateTime.Parse("2022-02-28");
+            DateTime endDate = DateTime.Parse("2023-02-28");
+
+            GamesSearchRequest request = new GamesSearchRequest
+            {
+                startDate=startDate,
+                endDate=endDate,
+                seasonYear=2022,
+                pagingOptions = new PagingOptionsModel
+                {
+                    Page = 1,
+                    PageSize = 10
+                }
+            };
+            GamesSearchResponse response = _gamesService.GetGamesSearchApi(request);
+            return View("GameSlate", response.GameSlates);
         }
 
         [HttpPost]
