@@ -1,6 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using SportsBook.Interfaces;
 using SportsBook.Models;
 
@@ -103,6 +107,35 @@ namespace SportsBook.Services
             gamesSearchResponse.GameSlates = pagedGameSlates;
 
             return gamesSearchResponse;
+        }
+
+        public GamesSearchResponse GetGamesSearchApi(GamesSearchRequest request)
+        {
+            List<GameSlate> gameSlates = new List<GameSlate>();
+            // Call Service here that retrieves data from Entities API
+
+            var client = new HttpClient();
+
+            var requestContent = JsonConvert.SerializeObject(request);
+
+            var httpRequest = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri($"{baseUrl}/api/GamesSearch"),
+                Content = new StringContent(requestContent.ToString(), Encoding.UTF8, "application/json"),
+            };
+
+            // Add ApiKey header
+            client.DefaultRequestHeaders.Add("ApiKey", "BackendAdmin2021");
+            
+            var httpResponse = client.SendAsync(httpRequest).Result;
+
+            var responseContent = httpResponse.Content.ReadAsStringAsync().Result;
+
+            //Map ML Response from the BCResponse
+            GamesSearchResponse response = JsonConvert.DeserializeObject<GamesSearchResponse>(responseContent);
+
+            return response;
         }
     }
 }
