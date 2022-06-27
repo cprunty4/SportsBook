@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using Sportsbook;
 using SportsBook.Interfaces;
 using SportsBook.Models;
 
@@ -17,7 +18,7 @@ namespace SportsBook.Services
 
         IGameSlateRepository _gameSlateRepository;
         public GamesService(IConfiguration configuration,
-        IGameSlateRepository gameSlateRepository)
+            IGameSlateRepository gameSlateRepository)
         {
             _configuration = configuration;
             baseUrl = _configuration.GetSection("EntitiesApiOptions").GetValue<string>("BaseUrl");
@@ -32,22 +33,22 @@ namespace SportsBook.Services
             // Implement teamName filtering
             if (!string.IsNullOrEmpty(request.teamName))
             {
-                if (gameSlates.Any(x => x.HomeTeamFullName != null
-                && x.HomeTeamFullName.ToUpper().Contains(request.teamName.ToUpper())))
+                if (gameSlates.Any(x => x.HomeTeamFullName != null &&
+                        x.HomeTeamFullName.ToUpper().Contains(request.teamName.ToUpper())))
                 {
-                    filteredGameSlates = gameSlates.Where(x => x.HomeTeamFullName != null
-                    && x.HomeTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList();
+                    filteredGameSlates = gameSlates.Where(x => x.HomeTeamFullName != null &&
+                        x.HomeTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList();
                 }
-                
-                if (gameSlates.Any(x => x.AwayTeamFullName != null
-                && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())))
+
+                if (gameSlates.Any(x => x.AwayTeamFullName != null &&
+                        x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())))
                 {
-                    if (filteredGameSlates.Count > 0)   
-                        filteredGameSlates.AddRange(gameSlates.Where(x => x.AwayTeamFullName != null
-                        && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList());
+                    if (filteredGameSlates.Count > 0)
+                        filteredGameSlates.AddRange(gameSlates.Where(x => x.AwayTeamFullName != null &&
+                            x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList());
                     else
-                        filteredGameSlates = gameSlates.Where(x => x.AwayTeamFullName != null
-                        && x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList();
+                        filteredGameSlates = gameSlates.Where(x => x.AwayTeamFullName != null &&
+                            x.AwayTeamFullName.ToUpper().Contains(request.teamName.ToUpper())).ToList();
 
                 }
 
@@ -59,26 +60,26 @@ namespace SportsBook.Services
             }
 
             // check for Start/End date filtering
-            if (request.startDate != System.DateTime.MinValue
-                && request.endDate != System.DateTime.MinValue)
+            if (request.startDate != System.DateTime.MinValue &&
+                request.endDate != System.DateTime.MinValue)
             {
-                if (filteredGameSlates.Count > 0)                   
-                    filteredGameSlates = filteredGameSlates.Where(x => 
-                    x.GameStartDateTime != null
-                    && x.GameStartDateTime >= request.startDate
-                    && x.GameStartDateTime <= request.endDate
+                if (filteredGameSlates.Count > 0)
+                    filteredGameSlates = filteredGameSlates.Where(x =>
+                        x.GameStartDateTime != null &&
+                        x.GameStartDateTime >= request.startDate &&
+                        x.GameStartDateTime <= request.endDate
                     ).ToList();
                 else
-                    filteredGameSlates = gameSlates.Where(x => 
-                    x.GameStartDateTime != null
-                    && x.GameStartDateTime >= request.startDate
-                    && x.GameStartDateTime <= request.endDate
-                    ).ToList();  
+                    filteredGameSlates = gameSlates.Where(x =>
+                        x.GameStartDateTime != null &&
+                        x.GameStartDateTime >= request.startDate &&
+                        x.GameStartDateTime <= request.endDate
+                    ).ToList();
 
                 if (filteredGameSlates.Count == 0)
                 {
                     gameSlates = new List<GameSlate>();
-                }                                      
+                }
 
             }
 
@@ -94,7 +95,7 @@ namespace SportsBook.Services
 
             // Implement paging
             var pagedGameSlates = gameSlates.Skip(pagingOptions.PageSize * (pagingOptions.Page - 1))
-                                        .Take(pagingOptions.PageSize).ToList();
+                .Take(pagingOptions.PageSize).ToList();
 
             // add paging response
             gamesSearchResponse.pagedResult = new PagedResultModel
@@ -127,10 +128,18 @@ namespace SportsBook.Services
 
             // Add ApiKey header
             client.DefaultRequestHeaders.Add("ApiKey", "BackendAdmin2021");
-            
+
             var httpResponse = client.SendAsync(httpRequest).Result;
 
             var responseContent = httpResponse.Content.ReadAsStringAsync().Result;
+
+            if (String.Equals(responseContent, SportsbookConstants.GAMES_NOT_FOUND, StringComparison.OrdinalIgnoreCase))
+            {
+                return new GamesSearchResponse
+                {
+                    GameSlates = new List<GameSlate> { }
+                };
+            }
 
             //Map ML Response from the BCResponse
             GamesSearchResponse response = JsonConvert.DeserializeObject<GamesSearchResponse>(responseContent);
