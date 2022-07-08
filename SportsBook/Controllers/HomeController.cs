@@ -43,13 +43,24 @@ namespace SportsBook.Controllers
         public IActionResult GameSlate()
         {
             _logger.LogInformation("entered GameSlate action");
-            GamesSearchRequest request = new GamesSearchRequest{
-                pagingOptions = new PagingOptionsModel {
-                    Page=1,
-                    PageSize=10
+            DateTime startDate = DateTime.Parse("2021-02-28");
+            DateTime endDate = DateTime.Parse("2022-02-28");
+
+            ViewBag.startDate = startDate.ToString("yyyy-MM-dd");
+            ViewBag.endDate = endDate.ToString("yyyy-MM-dd");
+
+            GamesSearchRequest request = new GamesSearchRequest
+            {
+                startDate = startDate,
+                endDate = endDate,
+                seasonYear = 2021,
+                pagingOptions = new PagingOptionsModel
+                {
+                    Page = 1,
+                    PageSize = 100
                 }
             };
-            GamesSearchResponse response = _gamesService.GetGamesSearch(request);
+            GamesSearchResponse response = _gamesService.GetGamesSearchApi(request);
             return View(response.GameSlates);
         }
 
@@ -70,6 +81,10 @@ namespace SportsBook.Controllers
             DateTime endDate;
             DateTime.TryParse(strStartDate, out startDate);
             DateTime.TryParse(strEndDate, out endDate);
+
+
+            ViewBag.startDate = startDate.ToString("yyyy-MM-dd");
+            ViewBag.endDate = endDate.ToString("yyyy-MM-dd");
 
             if (DateTime.Compare(startDate, endDate) > 0)
             {
