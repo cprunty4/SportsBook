@@ -25,6 +25,9 @@ namespace SportsBook.Controllers
             DateTime startDate = DateTime.Parse("2022-02-28");
             DateTime endDate = DateTime.Parse("2023-02-28");
 
+            ViewBag.startDate = startDate.ToString("yyyy-MM-dd");
+            ViewBag.endDate = endDate.ToString("yyyy-MM-dd");
+
             GamesSearchRequest request = new GamesSearchRequest
             {
                 startDate=startDate,
@@ -52,6 +55,9 @@ namespace SportsBook.Controllers
 
             DateTime.TryParse(strStartDate, out startDate);
             DateTime.TryParse(strEndDate, out endDate);
+
+            ViewBag.startDate = startDate.ToString("yyyy-MM-dd");
+            ViewBag.endDate = endDate.ToString("yyyy-MM-dd");
 
             GamesSearchRequest request = new GamesSearchRequest
             {
